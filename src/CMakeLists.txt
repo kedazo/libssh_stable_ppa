@@ -93,6 +93,16 @@ if (MINGW AND Threads_FOUND)
   )
 endif()
 
+set(LIBSSH_LIBRARY_NAME
+  ssh
+  CACHE INTERNAL "libssh library name"
+)
+
+set(LIBSSH_SHARED_LIBRARY
+  ssh_shared
+  CACHE INTERNAL "libssh shared library"
+)
+
 if (BUILD_STATIC_LIB)
   set(LIBSSH_STATIC_LIBRARY
     ssh_static
@@ -353,6 +363,8 @@ set_target_properties(ssh
         ${LIBRARY_VERSION}
       SOVERSION
         ${LIBRARY_SOVERSION}
+      OUTPUT_NAME
+        ${LIBSSH_LIBRARY_NAME}
       DEFINE_SYMBOL
         LIBSSH_EXPORTS
 )
