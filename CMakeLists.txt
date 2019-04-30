@@ -1,5 +1,8 @@
-cmake_minimum_required(VERSION 3.3.0)
+cmake_minimum_required(VERSION 2.8.0)
+
+if (CMAKE_VERSION VERSION_GREATER 3.0.0)
 cmake_policy(SET CMP0048 NEW)
+endif (CMAKE_VERSION VERSION_GREATER 3.0.0)
 
 # Specify search path for CMake modules to be loaded by include()
 # and find_package()
@@ -10,9 +13,15 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
 include(DefineCMakeDefaults)
 include(DefineCompilerFlags)
 
+if (CMAKE_VERSION VERSION_GREATER 3.0.0)
 project(libssh VERSION 0.10.5 LANGUAGES C)
+else (CMAKE_VERSION VERSION_GREATER 3.0.0)
+project(libssh LANGUAGES C)
+set(PROJECT_VERSION "0.10.5")
+endif (CMAKE_VERSION VERSION_GREATER 3.0.0)
 
 # global needed variable
+
 set(APPLICATION_NAME ${PROJECT_NAME})
 
 # SOVERSION scheme: CURRENT.AGE.REVISION
