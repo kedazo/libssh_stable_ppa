@@ -1,4 +1,3 @@
 usr/include/libssh/
-usr/lib/*/libssh.a
 usr/lib/*/libssh.so
 usr/lib/*/pkgconfig/
