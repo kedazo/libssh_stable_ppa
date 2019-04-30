@@ -1,3 +1,80 @@
+libssh (0.8.7-0up12) disco; urgency=medium
+
+  * Team upload.
+  * Release for disco.
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Tue, 30 Apr 2019 10:34:08 +0200
+
+libssh (0.8.7-0up11) cosmic; urgency=medium
+
+  * Team upload.
+  * Release for cosmic.
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Tue, 30 Apr 2019 10:34:06 +0200
+
+libssh (0.8.7-0up10) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Tue, 30 Apr 2019 10:34:05 +0200
+
+libssh (0.8.7-0up9) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Tue, 30 Apr 2019 10:34:04 +0200
+
+libssh (0.8.7-0up8) trusty; urgency=medium
+
+  * Team upload.
+  * Release for trusty.
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Tue, 30 Apr 2019 10:34:03 +0200
+
+libssh (0.8.7-0up7) disco; urgency=medium
+
+  * Team upload.
+  * Release for disco.
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Tue, 30 Apr 2019 10:16:31 +0200
+
+libssh (0.8.7-0up6) cosmic; urgency=medium
+
+  * Team upload.
+  * Release for cosmic.
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Tue, 30 Apr 2019 10:16:30 +0200
+
+libssh (0.8.7-0up5) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Tue, 30 Apr 2019 10:16:28 +0200
+
+libssh (0.8.7-0up4) artful; urgency=medium
+
+  * Team upload.
+  * Release for artful.
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Tue, 30 Apr 2019 10:16:27 +0200
+
+libssh (0.8.7-0up3) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Tue, 30 Apr 2019 10:16:26 +0200
+
+libssh (0.8.7-0up2) trusty; urgency=medium
+
+  * Team upload.
+  * Release for trusty.
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Tue, 30 Apr 2019 10:16:24 +0200
+
 libssh (0.8.7-0up1) UNRELEASED; urgency=medium
 
   * Import of 0.8.7

@@ -11,7 +11,7 @@ read
 
 rm -fv ../libssh*
 
-for distro in trusty xenial bionic cosmic disco; do
+for distro in xenial bionic cosmic disco; do
     debchange --team --distribution=$distro "Release for $distro."
 
     dpkg-buildpackage -rfakeroot -S
