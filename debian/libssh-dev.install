@@ -1,0 +1,4 @@
+debian/tmp/usr/include/libssh/
+debian/tmp/usr/lib/*/libssh.a
+debian/tmp/usr/lib/*/libssh.so
+debian/tmp/usr/lib/*/pkgconfig/

@@ -1,0 +1,55 @@
+#!/usr/bin/make -f
+
+DEB_CMAKE_EXTRA_FLAGS := -DWITH_STATIC_LIB=ON -DLIB_INSTALL_DIR=/usr/lib/$(DEB_HOST_MULTIARCH) -DWITH_GSSAPI=ON -DWITH_NACL=0 -DCMAKE_BUILD_TYPE=RelwithDebInfo
+
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,-z,defs -Wl,-O0 -Wl,--as-needed
+
+%:
+	dh $@
+
+override_dh_clean:
+	rm -rf debian/tmp-gcrypt
+	rm -rf debian/home-openssl
+	rm -rf debian/home-gcrypt
+	dh_clean
+
+override_dh_auto_clean:
+	dh_auto_clean -Bbuild-openssl
+	dh_auto_clean -Bbuild-gcrypt
+
+override_dh_auto_configure:
+	dh_auto_configure -Bbuild-openssl -- \
+		$(DEB_CMAKE_EXTRA_FLAGS)
+	dh_auto_configure -Bbuild-gcrypt -- \
+		$(DEB_CMAKE_EXTRA_FLAGS) \
+		-DWITH_GCRYPT=ON \
+		-DLIBSSH_LIBRARY_NAME=ssh-gcrypt
+
+override_dh_auto_build:
+	dh_auto_build -Bbuild-openssl
+	$(MAKE) -Cbuild-openssl doc
+	dh_auto_build -Bbuild-gcrypt
+
+override_dh_auto_install:
+	dh_auto_install -Bbuild-openssl
+	dh_auto_install -Bbuild-gcrypt --destdir=debian/tmp-gcrypt
+
+override_dh_auto_test:
+	mkdir debian/home-openssl
+	mkdir debian/home-gcrypt
+	HOME=debian/home-openssl dh_auto_test -Bbuild-openssl
+	HOME=debian/home-gcrypt dh_auto_test -Bbuild-gcrypt
+
+override_dh_install:
+	find debian/tmp-gcrypt -name libssh-gcrypt.so -execdir mv '{}' libssh.so \;
+	find debian/tmp-gcrypt -name libssh-gcrypt_threads.so -execdir mv '{}' libssh_threads.so \;
+	dh_link -v -Pdebian/tmp-gcrypt -plibssh-gcrypt-4
+	dh_link -v -Pdebian/tmp -plibssh-4
+	dh_install -plibssh-gcrypt-4 -plibssh-gcrypt-dev --sourcedir=debian/tmp-gcrypt
+	dh_install --remaining-packages
+
+override_dh_strip:
+	dh_strip --dbg-package=libssh-dbg
+
+get-orig-source:
+	uscan --noconf --force-download --rename --download-current-version --destdir=..

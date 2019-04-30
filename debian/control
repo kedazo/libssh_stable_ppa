@@ -1,0 +1,100 @@
+Source: libssh
+Section: libs
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Laurent Bigonville <bigon@debian.org>
+Uploaders: Mike Gabriel <sunweaver@debian.org>,
+Build-Depends: cmake (>= 2.6),
+               debhelper (>= 9),
+               libgcrypt-dev,
+               libkrb5-dev | heimdal-dev,
+               libssl-dev,
+               libz-dev,
+               python,
+               openssh-client,
+               pkg-config
+Build-Depends-Indep: doxygen
+Standards-Version: 3.9.5
+Vcs-Git: git://anonscm.debian.org/collab-maint/libssh.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/libssh.git
+Homepage: http://www.libssh.org/
+
+Package: libssh-4
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Multi-Arch: same
+Description: tiny C SSH library (OpenSSL flavor)
+ The ssh library was designed to be used by programmers needing a working SSH
+ implementation by the mean of a library. The complete control of the client
+ is made by the programmer. With libssh, you can remotely execute programs,
+ transfer files, use a secure and transparent tunnel for your remote programs.
+ With its SFTP implementation, you can play with remote files easily.
+ .
+ This package contains shared libraries linked against OpenSSL.
+
+Package: libssh-gcrypt-4
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Multi-Arch: same
+Description: tiny C SSH library (gcrypt flavor)
+ The ssh library was designed to be used by programmers needing a working SSH
+ implementation by the mean of a library. The complete control of the client
+ is made by the programmer. With libssh, you can remotely execute programs,
+ transfer files, use a secure and transparent tunnel for your remote programs.
+ With its SFTP implementation, you can play with remote files easily.
+ .
+ This package contains shared libraries linked against gcrypt.
+
+Package: libssh-dev
+Section: libdevel
+Architecture: any
+Depends: libssh-4 (= ${binary:Version}),
+         libssl-dev,
+         zlib1g-dev,
+         ${misc:Depends}
+Conflicts: libssh-2-dev, libssh-gcrypt-dev
+Replaces: libssh-2-dev
+Description: tiny C SSH library. Development files (OpenSSL flavor)
+ The ssh library was designed to be used by programmers needing a working SSH
+ implementation by the mean of a library. The complete control of the client
+ is made by the programmer. With libssh, you can remotely execute programs,
+ transfer files, use a secure and transparent tunnel for your remote programs.
+ With its SFTP implementation, you can play with remote files easily.
+ .
+ This package contains development files to build the OpenSSL flavor.
+
+Package: libssh-gcrypt-dev
+Section: libdevel
+Architecture: any
+Depends: libgcrypt-dev,
+         libssh-gcrypt-4 (= ${binary:Version}),
+         zlib1g-dev,
+         ${misc:Depends}
+Conflicts: libssh-2-dev, libssh-dev
+Replaces: libssh-2-dev
+Description: tiny C SSH library. Development files (gcrypt flavor)
+ The ssh library was designed to be used by programmers needing a working SSH
+ implementation by the mean of a library. The complete control of the client
+ is made by the programmer. With libssh, you can remotely execute programs,
+ transfer files, use a secure and transparent tunnel for your remote programs.
+ With its SFTP implementation, you can play with remote files easily.
+ .
+ This package contains development files to build the gcrypt flavor.
+
+Package: libssh-dbg
+Priority: extra
+Section: debug
+Architecture: any
+Depends: libssh-4 (= ${binary:Version}) | libssh-gcrypt-4 (= ${binary:Version}),
+         ${misc:Depends}
+Multi-Arch: same
+Description: tiny C SSH library. Debug symbols
+ The ssh library was designed to be used by programmers needing a working SSH
+ implementation by the mean of a library. The complete control of the client
+ is made by the programmer. With libssh, you can remotely execute programs,
+ transfer files, use a secure and transparent tunnel for your remote programs.
+ With its SFTP implementation, you can play with remote files easily.
+ .
+ This package contains debug symbols.

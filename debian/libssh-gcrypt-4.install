@@ -1,0 +1,2 @@
+usr/lib/*/libssh-gcrypt.so.*
+usr/lib/*/libssh-gcrypt_threads.so.*
