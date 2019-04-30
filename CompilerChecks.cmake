@@ -38,8 +38,8 @@ if (UNIX)
     add_c_compiler_flag("-Wuninitialized" SUPPORTED_COMPILER_FLAGS)
     add_c_compiler_flag("-Werror=uninitialized" SUPPORTED_COMPILER_FLAGS)
     add_c_compiler_flag("-Wimplicit-fallthrough" SUPPORTED_COMPILER_FLAGS)
-    #add_c_compiler_flag("-Werror=strict-overflow" SUPPORTED_COMPILER_FLAGS)
-    #add_c_compiler_flag("-Wstrict-overflow=2" SUPPORTED_COMPILER_FLAGS)
+    add_c_compiler_flag("-Werror=strict-overflow" SUPPORTED_COMPILER_FLAGS)
+    add_c_compiler_flag("-Wstrict-overflow=2" SUPPORTED_COMPILER_FLAGS)
     add_c_compiler_flag("-Wno-format-zero-length" SUPPORTED_COMPILER_FLAGS)
 
     check_c_compiler_flag("-Wformat" REQUIRED_FLAGS_WFORMAT)
@@ -51,7 +51,7 @@ if (UNIX)
     add_c_compiler_flag("-Werror=format-security" SUPPORTED_COMPILER_FLAGS)
 
     # Allow zero for a variadic macro argument
-    #add_c_compiler_flag("-Wno-gnu-zero-variadic-macro-arguments" SUPPORTED_COMPILER_FLAGS)
+    add_c_compiler_flag("-Wno-gnu-zero-variadic-macro-arguments" SUPPORTED_COMPILER_FLAGS)
 
     add_c_compiler_flag("-fno-common" SUPPORTED_COMPILER_FLAGS)
 
