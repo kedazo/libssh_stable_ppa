@@ -2,6 +2,8 @@ libssh.so.4 libssh-4 #MINVER#
  LIBSSH_4_5_0@LIBSSH_4_5_0 0.8.1-0up0
  LIBSSH_4_6_0@LIBSSH_4_6_0 0.8.2-0up1
  LIBSSH_4_7_0@LIBSSH_4_7_0 0.8.4-0up0
+ LIBSSH_4_8_0@LIBSSH_4_8_0 0.9.0-0up1
+ LIBSSH_4_8_1@LIBSSH_4_8_1 0.9.0-0up1
  _ssh_log@LIBSSH_4_5_0 0.8.1-0up0
  buffer_free@LIBSSH_4_5_0 0.8.1-0up0
  buffer_get@LIBSSH_4_5_0 0.8.1-0up0
@@ -100,6 +102,7 @@ libssh.so.4 libssh-4 #MINVER#
  sftp_seek64@LIBSSH_4_5_0 0.8.1-0up0
  sftp_seek@LIBSSH_4_5_0 0.8.1-0up0
  sftp_send_client_message@LIBSSH_4_5_0 0.8.1-0up0
+ sftp_server_free@LIBSSH_4_8_0 0.9.0-0up1
  sftp_server_init@LIBSSH_4_5_0 0.8.1-0up0
  sftp_server_new@LIBSSH_4_5_0 0.8.1-0up0
  sftp_server_version@LIBSSH_4_5_0 0.8.1-0up0
@@ -124,6 +127,7 @@ libssh.so.4 libssh-4 #MINVER#
  ssh_bind_get_fd@LIBSSH_4_5_0 0.8.1-0up0
  ssh_bind_listen@LIBSSH_4_5_0 0.8.1-0up0
  ssh_bind_new@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_bind_options_parse_config@LIBSSH_4_8_0 0.9.0-0up1
  ssh_bind_options_set@LIBSSH_4_5_0 0.8.1-0up0
  ssh_bind_set_blocking@LIBSSH_4_5_0 0.8.1-0up0
  ssh_bind_set_callbacks@LIBSSH_4_5_0 0.8.1-0up0
@@ -151,6 +155,7 @@ libssh.so.4 libssh-4 #MINVER#
  ssh_channel_new@LIBSSH_4_5_0 0.8.1-0up0
  ssh_channel_open_auth_agent@LIBSSH_4_5_0 0.8.1-0up0
  ssh_channel_open_forward@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_channel_open_forward_unix@LIBSSH_4_8_0 0.9.0-0up1
  ssh_channel_open_reverse_forward@LIBSSH_4_5_0 0.8.1-0up0
  ssh_channel_open_session@LIBSSH_4_5_0 0.8.1-0up0
  ssh_channel_open_x11@LIBSSH_4_5_0 0.8.1-0up0
@@ -272,6 +277,7 @@ libssh.so.4 libssh-4 #MINVER#
  ssh_message_channel_request_open_originator@LIBSSH_4_5_0 0.8.1-0up0
  ssh_message_channel_request_open_originator_port@LIBSSH_4_5_0 0.8.1-0up0
  ssh_message_channel_request_open_reply_accept@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_message_channel_request_open_reply_accept_channel@LIBSSH_4_8_0 0.9.0-0up1
  ssh_message_channel_request_pty_height@LIBSSH_4_5_0 0.8.1-0up0
  ssh_message_channel_request_pty_pxheight@LIBSSH_4_5_0 0.8.1-0up0
  ssh_message_channel_request_pty_pxwidth@LIBSSH_4_5_0 0.8.1-0up0
@@ -350,6 +356,7 @@ libssh.so.4 libssh-4 #MINVER#
  ssh_server_init_kex@LIBSSH_4_5_0 0.8.1-0up0
  ssh_service_request@LIBSSH_4_5_0 0.8.1-0up0
  ssh_session_export_known_hosts_entry@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_session_get_known_hosts_entry@LIBSSH_4_8_1 0.9.0-0up1
  ssh_session_has_known_hosts_entry@LIBSSH_4_5_0 0.8.1-0up0
  ssh_session_is_known_server@LIBSSH_4_5_0 0.8.1-0up0
  ssh_session_update_known_hosts@LIBSSH_4_5_0 0.8.1-0up0
@@ -381,6 +388,7 @@ libssh.so.4 libssh-4 #MINVER#
  ssh_string_len@LIBSSH_4_5_0 0.8.1-0up0
  ssh_string_new@LIBSSH_4_5_0 0.8.1-0up0
  ssh_string_to_char@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_threads_get_default@LIBSSH_4_8_1 0.9.0-0up1
  ssh_threads_get_noop@LIBSSH_4_5_0 0.8.1-0up0
  ssh_threads_get_pthread@LIBSSH_4_5_0 0.8.1-0up0
  ssh_threads_set_callbacks@LIBSSH_4_5_0 0.8.1-0up0
