@@ -1,3 +1,10 @@
+libssh (0.9.0-0up1) UNRELEASED; urgency=medium
+
+  * libssh release 0.9.0
+  * https://www.libssh.org/files/0.9/libssh-0.9.0.tar.xz
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Fri, 28 Jun 2019 14:51:14 +0200
+
 libssh (0.8.7-0up12) disco; urgency=medium
 
   * Team upload.
