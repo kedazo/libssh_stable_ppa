@@ -1,8 +1,5 @@
-cmake_minimum_required(VERSION 2.8.0)
-
-if (CMAKE_VERSION VERSION_GREATER 3.0.0)
+cmake_minimum_required(VERSION 3.3.0)
 cmake_policy(SET CMP0048 NEW)
-endif (MAKE_VERSION VERSION_GREATER 3.0.0)
 
 # Specify search path for CMake modules to be loaded by include() 
 # and find_package()
@@ -13,15 +10,9 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
 include(DefineCMakeDefaults)
 include(DefineCompilerFlags)
 
-if (CMAKE_VERSION VERSION_GREATER 3.0.0)
-project(libssh VERSION 0.8.7 LANGUAGES C)
-else (CMAKE_VERSION VERSION_GREATER 3.0.0)
-project(libssh LANGUAGES C)
-set(PROJECT_VERSION "0.8.7")
-endif (MAKE_VERSION VERSION_GREATER 3.0.0)
+project(libssh VERSION 0.9.0 LANGUAGES C)
 
 # global needed variable
-
 set(APPLICATION_NAME ${PROJECT_NAME})
 
 # SOVERSION scheme: CURRENT.AGE.REVISION
@@ -31,7 +22,7 @@ set(APPLICATION_NAME ${PROJECT_NAME})
 #     Increment AGE. Set REVISION to 0
 #   If the source code was changed, but there were no interface changes:
 #     Increment REVISION.
-set(LIBRARY_VERSION "4.7.4")
+set(LIBRARY_VERSION "4.8.1")
 set(LIBRARY_SOVERSION "4")
 
 # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
@@ -78,6 +69,10 @@ else (WITH_GCRYPT)
     endif (NOT GCRYPT_FOUND)
   endif (NOT OPENSSL_FOUND)
 endif(WITH_GCRYPT)
+
+if (UNIT_TESTING)
+    find_package(CMocka REQUIRED)
+endif ()
 
 # Find out if we have threading available
 set(CMAKE_THREAD_PREFER_PTHREADS ON)
@@ -159,9 +154,8 @@ if (WITH_EXAMPLES)
 endif (WITH_EXAMPLES)
 
 if (UNIT_TESTING)
-  find_package(CMocka REQUIRED)
-  include(AddCMockaTest)
-  add_subdirectory(tests)
+    include(AddCMockaTest)
+    add_subdirectory(tests)
 endif (UNIT_TESTING)
 
 ### SOURCE PACKAGE
@@ -229,10 +223,12 @@ message(STATUS "libnacl support: ${WITH_NACL}")
 message(STATUS "SFTP support: ${WITH_SFTP}")
 message(STATUS "Server support : ${WITH_SERVER}")
 message(STATUS "GSSAPI support : ${WITH_GSSAPI}")
+message(STATUS "GEX support : ${WITH_GEX}")
 message(STATUS "Pcap debugging support : ${WITH_PCAP}")
 message(STATUS "With static library: ${WITH_STATIC_LIB}")
 message(STATUS "Unit testing: ${UNIT_TESTING}")
 message(STATUS "Client code testing: ${CLIENT_TESTING}")
+message(STATUS "Blowfish cipher support: ${WITH_BLOWFISH_CIPHER}")
 set(_SERVER_TESTING OFF)
 if (WITH_SERVER)
     set(_SERVER_TESTING ${SERVER_TESTING})
@@ -247,5 +243,9 @@ message(STATUS "Benchmarks: ${WITH_BENCHMARKS}")
 message(STATUS "Symbol versioning: ${WITH_SYMBOL_VERSIONING}")
 message(STATUS "Allow ABI break: ${WITH_ABI_BREAK}")
 message(STATUS "Release is final: ${WITH_FINAL}")
+message(STATUS "Global client config: ${GLOBAL_CLIENT_CONFIG}")
+if (WITH_SERVER)
+message(STATUS "Global bind config: ${GLOBAL_BIND_CONFIG}")
+endif()
 message(STATUS "********************************************")
 
