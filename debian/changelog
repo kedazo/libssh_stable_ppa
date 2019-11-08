@@ -1,3 +1,31 @@
+libssh (0.9.0-0up5) disco; urgency=medium
+
+  * Team upload.
+  * Release for disco.
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Fri, 28 Jun 2019 14:56:47 +0200
+
+libssh (0.9.0-0up4) cosmic; urgency=medium
+
+  * Team upload.
+  * Release for cosmic.
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Fri, 28 Jun 2019 14:56:45 +0200
+
+libssh (0.9.0-0up3) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Fri, 28 Jun 2019 14:56:44 +0200
+
+libssh (0.9.0-0up2) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <david.kedves@borgcollective.eu>  Fri, 28 Jun 2019 14:56:42 +0200
+
 libssh (0.9.0-0up1) UNRELEASED; urgency=medium
 
   * libssh release 0.9.0

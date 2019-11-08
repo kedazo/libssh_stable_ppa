@@ -1,8 +1,5 @@
-cmake_minimum_required(VERSION 2.8.0)
-
-if (CMAKE_VERSION VERSION_GREATER 3.0.0)
+cmake_minimum_required(VERSION 3.3.0)
 cmake_policy(SET CMP0048 NEW)
-endif (MAKE_VERSION VERSION_GREATER 3.0.0)
 
 # Specify search path for CMake modules to be loaded by include() 
 # and find_package()
@@ -13,15 +10,9 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
 include(DefineCMakeDefaults)
 include(DefineCompilerFlags)
 
-if (CMAKE_VERSION VERSION_GREATER 3.0.0)
-project(libssh VERSION 0.9.0 LANGUAGES C)
-else (CMAKE_VERSION VERSION_GREATER 3.0.0)
-project(libssh LANGUAGES C)
-set(PROJECT_VERSION "0.9.0")
-endif (MAKE_VERSION VERSION_GREATER 3.0.0)
+project(libssh VERSION 0.9.2 LANGUAGES C)
 
 # global needed variable
-
 set(APPLICATION_NAME ${PROJECT_NAME})
 
 # SOVERSION scheme: CURRENT.AGE.REVISION
@@ -31,16 +22,16 @@ set(APPLICATION_NAME ${PROJECT_NAME})
 #     Increment AGE. Set REVISION to 0
 #   If the source code was changed, but there were no interface changes:
 #     Increment REVISION.
-set(LIBRARY_VERSION "4.8.1")
+set(LIBRARY_VERSION "4.8.3")
 set(LIBRARY_SOVERSION "4")
 
 # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
 
 # add definitions
 include(DefinePlatformDefaults)
-include(DefineInstallationPaths)
 include(DefineOptions.cmake)
 include(CPackConfig.cmake)
+include(GNUInstallDirs)
 
 include(CompilerChecks.cmake)
 
@@ -126,7 +117,7 @@ install(
   FILES
     ${CMAKE_CURRENT_BINARY_DIR}/libssh.pc
   DESTINATION
-    ${LIB_INSTALL_DIR}/pkgconfig
+    ${CMAKE_INSTALL_LIBDIR}/pkgconfig
   COMPONENT
     pkgconfig
 )
@@ -142,21 +133,13 @@ write_basic_package_version_file(libssh-config-version.cmake
                                  VERSION ${PROJECT_VERSION}
                                  COMPATIBILITY SameMajorVersion)
 
-# libssh-config.cmake
-configure_package_config_file(${PROJECT_NAME}-config.cmake.in
-                              ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config.cmake
-                              INSTALL_DESTINATION ${CMAKE_INSTALL_DIR}/${PROJECT_NAME}
-                              PATH_VARS INCLUDE_INSTALL_DIR LIB_INSTALL_DIR)
-
 install(
     FILES
-        ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config.cmake
         ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config-version.cmake
     DESTINATION
-        ${CMAKE_INSTALL_DIR}/${PROJECT_NAME}
+        ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
     COMPONENT
-        devel
-)
+        devel)
 
 if (WITH_EXAMPLES)
     add_subdirectory(examples)
@@ -222,6 +205,11 @@ endif (WITH_SYMBOL_VERSIONING AND ABIMAP_FOUND)
 
 add_custom_target(dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source DEPENDS ${_SYMBOL_TARGET})
 
+# Link compile database for clangd
+execute_process(COMMAND cmake -E create_symlink
+                "${CMAKE_BINARY_DIR}/compile_commands.json"
+                "${CMAKE_SOURCE_DIR}/compile_commands.json")
+
 message(STATUS "********************************************")
 message(STATUS "********** ${PROJECT_NAME} build options : **********")
 
@@ -234,7 +222,7 @@ message(STATUS "Server support : ${WITH_SERVER}")
 message(STATUS "GSSAPI support : ${WITH_GSSAPI}")
 message(STATUS "GEX support : ${WITH_GEX}")
 message(STATUS "Pcap debugging support : ${WITH_PCAP}")
-message(STATUS "With static library: ${WITH_STATIC_LIB}")
+message(STATUS "Build shared library: ${BUILD_SHARED_LIBS}")
 message(STATUS "Unit testing: ${UNIT_TESTING}")
 message(STATUS "Client code testing: ${CLIENT_TESTING}")
 message(STATUS "Blowfish cipher support: ${WITH_BLOWFISH_CIPHER}")

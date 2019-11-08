@@ -373,6 +373,7 @@ SSH_PACKET_CALLBACK(ssh_packet_client_dh_reply){
   rc = ssh_dh_compute_shared_secret(session->next_crypto->dh_ctx,
                                     DH_CLIENT_KEYPAIR, DH_SERVER_KEYPAIR,
                                     &session->next_crypto->shared_secret);
+  ssh_dh_debug_crypto(session->next_crypto);
   if (rc == SSH_ERROR){
     ssh_set_error(session, SSH_FATAL, "Could not generate shared secret");
     goto error;
@@ -430,6 +431,7 @@ int ssh_server_dh_process_init(ssh_session session, ssh_buffer packet)
 {
     struct ssh_crypto_struct *crypto = session->next_crypto;
     ssh_key privkey = NULL;
+    enum ssh_digest_e digest = SSH_DIGEST_AUTO;
     ssh_string sig_blob = NULL;
     ssh_string pubkey_blob = NULL;
     bignum client_pubkey;
@@ -455,13 +457,14 @@ int ssh_server_dh_process_init(ssh_session session, ssh_buffer packet)
         goto error;
     }
 
-    rc = ssh_get_key_params(session, &privkey);
+    rc = ssh_get_key_params(session, &privkey, &digest);
     if (rc != SSH_OK) {
         goto error;
     }
     rc = ssh_dh_compute_shared_secret(crypto->dh_ctx,
                                       DH_SERVER_KEYPAIR, DH_CLIENT_KEYPAIR,
                                       &crypto->shared_secret);
+    ssh_dh_debug_crypto(crypto);
     if (rc == SSH_ERROR) {
         ssh_set_error(session, SSH_FATAL, "Could not generate shared secret");
         goto error;
@@ -471,7 +474,7 @@ int ssh_server_dh_process_init(ssh_session session, ssh_buffer packet)
         ssh_set_error(session, SSH_FATAL, "Could not create a session id");
         goto error;
     }
-    sig_blob = ssh_srv_pki_do_sign_sessionid(session, privkey);
+    sig_blob = ssh_srv_pki_do_sign_sessionid(session, privkey, digest);
     if (sig_blob == NULL) {
         ssh_set_error(session, SSH_FATAL, "Could not sign the session id");
         goto error;
