@@ -1,3 +1,31 @@
+libssh (0.9.2-0up4) disco; urgency=medium
+
+  * Team upload.
+  * Release for disco.
+
+ -- David Kedves <kedazo@severalnines.com>  Fri, 08 Nov 2019 10:55:41 +0100
+
+libssh (0.9.2-0up3) cosmic; urgency=medium
+
+  * Team upload.
+  * Release for cosmic.
+
+ -- David Kedves <kedazo@severalnines.com>  Fri, 08 Nov 2019 10:55:39 +0100
+
+libssh (0.9.2-0up2) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <kedazo@severalnines.com>  Fri, 08 Nov 2019 10:55:38 +0100
+
+libssh (0.9.2-0up1) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <kedazo@severalnines.com>  Fri, 08 Nov 2019 10:55:36 +0100
+
 libssh (0.9.2-0up0) UNRELEASED; urgency=medium
 
   * Release 0.9.2 (forgot to upgrade version)
