@@ -1,3 +1,9 @@
+libssh (0.9.2-0up0) UNRELEASED; urgency=medium
+
+  * Release 0.9.2 (forgot to upgrade version)
+
+ -- David Kedves <kedazo@severalnines.com>  Fri, 08 Nov 2019 10:54:48 +0100
+
 libssh (0.9.0-0up9) disco; urgency=medium
 
   * Team upload.
