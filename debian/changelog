@@ -1,3 +1,66 @@
+libssh (0.9.3-0up9) eoan; urgency=medium
+
+  * Team upload.
+  * Release for eoan.
+
+ -- David Kedves <kedazo@severalnines.com>  Wed, 11 Dec 2019 09:44:58 +0100
+
+libssh (0.9.3-0up8) disco; urgency=medium
+
+  * Team upload.
+  * Release for disco.
+
+ -- David Kedves <kedazo@severalnines.com>  Wed, 11 Dec 2019 09:44:57 +0100
+
+libssh (0.9.3-0up7) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <kedazo@severalnines.com>  Wed, 11 Dec 2019 09:44:55 +0100
+
+libssh (0.9.3-0up6) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <kedazo@severalnines.com>  Wed, 11 Dec 2019 09:44:54 +0100
+
+libssh (0.9.3-0up5) trusty; urgency=medium
+
+  * Team upload.
+  * Release for trusty.
+
+ -- David Kedves <kedazo@severalnines.com>  Wed, 11 Dec 2019 09:44:52 +0100
+
+libssh (0.9.3-0up4) disco; urgency=medium
+
+  * Team upload.
+  * Release for disco.
+
+ -- David Kedves <kedazo@severalnines.com>  Wed, 11 Dec 2019 09:05:10 +0100
+
+libssh (0.9.3-0up3) cosmic; urgency=medium
+
+  * Team upload.
+  * Release for cosmic.
+
+ -- David Kedves <kedazo@severalnines.com>  Wed, 11 Dec 2019 09:05:09 +0100
+
+libssh (0.9.3-0up2) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <kedazo@severalnines.com>  Wed, 11 Dec 2019 09:05:07 +0100
+
+libssh (0.9.3-0up1) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <kedazo@severalnines.com>  Wed, 11 Dec 2019 09:05:06 +0100
+
 libssh (0.9.3-0up0) UNRELEASED; urgency=medium
 
   * Import 0.9.3 + compilation fixes for .deb building
