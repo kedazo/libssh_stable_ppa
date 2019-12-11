@@ -85,21 +85,6 @@ if (WITH_NACL AND NACL_FOUND)
   )
 endif (WITH_NACL AND NACL_FOUND)
 
-set(LIBSSH_LINK_LIBRARIES
-  ${LIBSSH_LINK_LIBRARIES}
-  CACHE INTERNAL "libssh link libraries"
-)
-
-set(LIBSSH_LIBRARY_NAME
-  ssh
-  CACHE INTERNAL "libssh library name"
-)
-
-set(LIBSSH_SHARED_LIBRARY
-  ssh_shared
-  CACHE INTERNAL "libssh shared library"
-)
-
 if (BUILD_STATIC_LIB)
   set(LIBSSH_STATIC_LIBRARY
     ssh_static
@@ -337,6 +322,10 @@ target_include_directories(ssh
 target_link_libraries(ssh
                       PRIVATE ${LIBSSH_LINK_LIBRARIES})
 
+if (WIN32 AND NOT BUILD_SHARED_LIBS)
+    set_target_properties(ssh PROPERTIES COMPILE_FLAGS "-DLIBSSH_STATIC")
+endif ()
+
 add_library(ssh::ssh ALIAS ssh)
 
 if (WITH_SYMBOL_VERSIONING AND HAVE_LD_VERSION_SCRIPT)
@@ -356,8 +345,6 @@ set_target_properties(ssh
         ${LIBRARY_VERSION}
       SOVERSION
         ${LIBRARY_SOVERSION}
-      OUTPUT_NAME
-        ${LIBSSH_LIBRARY_NAME}
       DEFINE_SYMBOL
         LIBSSH_EXPORTS
 )
