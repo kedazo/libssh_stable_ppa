@@ -1,3 +1,9 @@
+libssh (0.9.3-0up0) UNRELEASED; urgency=medium
+
+  * Import 0.9.3 + compilation fixes for .deb building
+
+ -- David Kedves <kedazo@severalnines.com>  Wed, 11 Dec 2019 08:51:01 +0100
+
 libssh (0.9.2-0up4) disco; urgency=medium
 
   * Team upload.
