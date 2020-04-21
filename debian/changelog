@@ -1,3 +1,9 @@
+libssh (0.9.4-0up0) UNRELEASED; urgency=medium
+
+  * Import 0.9.4
+
+ -- David Kedves <kedazo@severalnines.com>  Tue, 21 Apr 2020 12:24:02 +0200
+
 libssh (0.9.3-0up9) eoan; urgency=medium
 
   * Team upload.
