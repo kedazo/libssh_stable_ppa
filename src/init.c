@@ -28,8 +28,6 @@
 #include "libssh/poll.h"
 #include "libssh/threads.h"
 
-#include <stdio.h>
-
 #ifdef _WIN32
 #include <winsock2.h>
 #endif
@@ -108,7 +106,6 @@ _ret:
  *
  * This functions is automatically called when the library is loaded.
  *
- * @returns             0 on success, -1 if an error occured.
  */
 void libssh_constructor(void)
 {
@@ -189,8 +186,6 @@ _ret:
  * @brief Finalize and cleanup all libssh and cryptographic data structures.
  *
  * This function is automatically called when the library is unloaded.
- *
- * @returns             SSH_OK on success, SSH_ERROR if an error occurred.
  *
  */
 void libssh_destructor(void)

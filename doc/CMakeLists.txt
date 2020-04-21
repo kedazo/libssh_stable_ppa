@@ -3,9 +3,7 @@
 #
 if (${CMAKE_VERSION} VERSION_GREATER "3.8.99")
 
-if (WITH_INTERNAL_DOC)
 find_package(Doxygen)
-endif (WITH_INTERNAL_DOC)
 
 if (DOXYGEN_FOUND)
     set(DOXYGEN_PROJECT_NAME ${PROJECT_NAME})
@@ -17,6 +15,8 @@ if (DOXYGEN_FOUND)
     set(DOXYGEN_MARKDOWN_SUPPORT YES)
 
     set(DOXYGEN_PREDEFINED DOXYGEN
+                           WITH_SERVER
+                           WITH_SFTP
                            PRINTF_ATTRIBUTE(x,y))
 
     set(DOXYGEN_EXCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/that_style)
