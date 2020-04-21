@@ -1,3 +1,31 @@
+libssh (0.9.4-0up4) eoan; urgency=medium
+
+  * Team upload.
+  * Release for eoan.
+
+ -- David Kedves <kedazo@severalnines.com>  Tue, 21 Apr 2020 12:26:42 +0200
+
+libssh (0.9.4-0up3) disco; urgency=medium
+
+  * Team upload.
+  * Release for disco.
+
+ -- David Kedves <kedazo@severalnines.com>  Tue, 21 Apr 2020 12:26:40 +0200
+
+libssh (0.9.4-0up2) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <kedazo@severalnines.com>  Tue, 21 Apr 2020 12:26:37 +0200
+
+libssh (0.9.4-0up1) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <kedazo@severalnines.com>  Tue, 21 Apr 2020 12:26:35 +0200
+
 libssh (0.9.4-0up0) UNRELEASED; urgency=medium
 
   * Import 0.9.4

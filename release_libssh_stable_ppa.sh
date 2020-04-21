@@ -12,7 +12,7 @@ read
 rm -fv ../libssh*
 
 # trusty is too old
-for distro in xenial bionic disco eoan; do
+for distro in xenial bionic eoan; do
     debchange --team --distribution=$distro "Release for $distro."
 
     dpkg-buildpackage -rfakeroot -S
