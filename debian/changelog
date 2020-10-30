@@ -1,3 +1,9 @@
+libssh (0.9.5-0up0) UNRELEASED; urgency=medium
+
+  * Imported & patched new libssh release 0.9.5
+
+ -- David Kedves <kedazo@severalnines.com>  Fri, 30 Oct 2020 08:08:50 +0100
+
 libssh (0.9.4-0up8) focal; urgency=medium
 
   * Team upload.
