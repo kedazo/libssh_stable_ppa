@@ -1,3 +1,31 @@
+libssh (0.9.4-0up8) focal; urgency=medium
+
+  * Team upload.
+  * Release for focal.
+
+ -- David Kedves <kedazo@severalnines.com>  Mon, 06 Jul 2020 14:50:28 +0200
+
+libssh (0.9.4-0up7) eoan; urgency=medium
+
+  * Team upload.
+  * Release for eoan.
+
+ -- David Kedves <kedazo@severalnines.com>  Mon, 06 Jul 2020 14:50:25 +0200
+
+libssh (0.9.4-0up6) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <kedazo@severalnines.com>  Mon, 06 Jul 2020 14:50:22 +0200
+
+libssh (0.9.4-0up5) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <kedazo@severalnines.com>  Mon, 06 Jul 2020 14:50:19 +0200
+
 libssh (0.9.4-0up4) eoan; urgency=medium
 
   * Team upload.

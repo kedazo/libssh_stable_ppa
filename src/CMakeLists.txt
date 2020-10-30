@@ -1,6 +1,7 @@
 set(LIBSSH_PUBLIC_INCLUDE_DIRS ${libssh_SOURCE_DIR}/include)
 
 set(LIBSSH_PRIVATE_INCLUDE_DIRS
+  ${libssh_BINARY_DIR}/include
   ${libssh_BINARY_DIR}
 )
 
@@ -91,16 +92,6 @@ if (MINGW AND Threads_FOUND)
     Threads::Threads
   )
 endif()
-
-set(LIBSSH_LIBRARY_NAME
-  ssh
-  CACHE INTERNAL "libssh library name"
-)
-
-set(LIBSSH_SHARED_LIBRARY
-  ssh_shared
-  CACHE INTERNAL "libssh shared library"
-)
 
 if (BUILD_STATIC_LIB)
   set(LIBSSH_STATIC_LIBRARY
@@ -362,8 +353,6 @@ set_target_properties(ssh
         ${LIBRARY_VERSION}
       SOVERSION
         ${LIBRARY_SOVERSION}
-      OUTPUT_NAME
-        ${LIBSSH_LIBRARY_NAME}
       DEFINE_SYMBOL
         LIBSSH_EXPORTS
 )
@@ -374,6 +363,7 @@ endif (WITH_VISIBILITY_HIDDEN)
 
 if (MINGW)
     set_target_properties(ssh PROPERTIES LINK_FLAGS "-Wl,--enable-stdcall-fixup")
+    set_target_properties(ssh PROPERTIES COMPILE_FLAGS "-D_POSIX_SOURCE")
 endif ()
 
 
