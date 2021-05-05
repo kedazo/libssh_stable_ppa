@@ -1,3 +1,87 @@
+libssh (0.9.5-0up16) hirsute; urgency=medium
+
+  * Team upload.
+  * Release for hirsute.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 04 May 2021 09:49:54 +0200
+
+libssh (0.9.5-0up15) groovy; urgency=medium
+
+  * Team upload.
+  * Release for groovy.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 04 May 2021 09:49:53 +0200
+
+libssh (0.9.5-0up14) focal; urgency=medium
+
+  * Team upload.
+  * Release for focal.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 04 May 2021 09:49:52 +0200
+
+libssh (0.9.5-0up13) eoan; urgency=medium
+
+  * Team upload.
+  * Release for eoan.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 04 May 2021 09:49:50 +0200
+
+libssh (0.9.5-0up12) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 04 May 2021 09:49:49 +0200
+
+libssh (0.9.5-0up11) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 04 May 2021 09:49:48 +0200
+
+libssh (0.9.5-0up10) hirsute; urgency=medium
+
+  * Team upload.
+  * Release for hirsute.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 04 May 2021 09:49:31 +0200
+
+libssh (0.9.5-0up9) groovy; urgency=medium
+
+  * Team upload.
+  * Release for groovy.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 04 May 2021 09:49:30 +0200
+
+libssh (0.9.5-0up8) focal; urgency=medium
+
+  * Team upload.
+  * Release for focal.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 04 May 2021 09:49:30 +0200
+
+libssh (0.9.5-0up7) eoan; urgency=medium
+
+  * Team upload.
+  * Release for eoan.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 04 May 2021 09:49:30 +0200
+
+libssh (0.9.5-0up6) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 04 May 2021 09:49:29 +0200
+
+libssh (0.9.5-0up5) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 04 May 2021 09:49:29 +0200
+
 libssh (0.9.5-0up4) focal; urgency=medium
 
   * Team upload.

@@ -12,7 +12,7 @@ read
 rm -fv ../libssh*
 
 # trusty is too old
-for distro in xenial bionic eoan focal groovy hirsute; do
+for distro in xenial bionic focal groovy hirsute; do
     debchange --team --distribution=$distro "Release for $distro."
 
     dpkg-buildpackage -rfakeroot -S
