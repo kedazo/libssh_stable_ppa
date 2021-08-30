@@ -1,3 +1,38 @@
+libssh (0.9.6-0up5) hirsute; urgency=medium
+
+  * Team upload.
+  * Release for hirsute.
+
+ -- David Kedves <kedz@kedz.eu>  Mon, 30 Aug 2021 12:52:11 +0200
+
+libssh (0.9.6-0up4) groovy; urgency=medium
+
+  * Team upload.
+  * Release for groovy.
+
+ -- David Kedves <kedz@kedz.eu>  Mon, 30 Aug 2021 12:52:10 +0200
+
+libssh (0.9.6-0up3) focal; urgency=medium
+
+  * Team upload.
+  * Release for focal.
+
+ -- David Kedves <kedz@kedz.eu>  Mon, 30 Aug 2021 12:52:09 +0200
+
+libssh (0.9.6-0up2) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <kedz@kedz.eu>  Mon, 30 Aug 2021 12:52:07 +0200
+
+libssh (0.9.6-0up1) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <kedz@kedz.eu>  Mon, 30 Aug 2021 12:52:06 +0200
+
 libssh (0.9.6-0up0) UNRELEASED; urgency=medium
 
   * Imported https://www.libssh.org/files/0.9/libssh-0.9.6.tar.xz
