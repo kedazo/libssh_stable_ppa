@@ -1,8 +1,5 @@
-cmake_minimum_required(VERSION 2.8.0)
-
-if (CMAKE_VERSION VERSION_GREATER 3.0.0)
+cmake_minimum_required(VERSION 3.3.0)
 cmake_policy(SET CMP0048 NEW)
-endif (CMAKE_VERSION VERSION_GREATER 3.0.0)
 
 # Specify search path for CMake modules to be loaded by include() 
 # and find_package()
@@ -13,15 +10,9 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
 include(DefineCMakeDefaults)
 include(DefineCompilerFlags)
 
-if (CMAKE_VERSION VERSION_GREATER 3.0.0)
-project(libssh VERSION 0.9.5 LANGUAGES C)
-else (CMAKE_VERSION VERSION_GREATER 3.0.0)
-project(libssh LANGUAGES C)
-set(PROJECT_VERSION "0.9.5")
-endif (CMAKE_VERSION VERSION_GREATER 3.0.0)
+project(libssh VERSION 0.9.6 LANGUAGES C)
 
 # global needed variable
-
 set(APPLICATION_NAME ${PROJECT_NAME})
 
 # SOVERSION scheme: CURRENT.AGE.REVISION
@@ -31,7 +22,7 @@ set(APPLICATION_NAME ${PROJECT_NAME})
 #     Increment AGE. Set REVISION to 0
 #   If the source code was changed, but there were no interface changes:
 #     Increment REVISION.
-set(LIBRARY_VERSION "4.8.6")
+set(LIBRARY_VERSION "4.8.7")
 set(LIBRARY_SOVERSION "4")
 
 # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
@@ -68,7 +59,13 @@ elseif(WITH_MBEDTLS)
     endif (NOT MBEDTLS_FOUND)
 else (WITH_GCRYPT)
   find_package(OpenSSL)
-  if (NOT OPENSSL_FOUND)
+  if (OPENSSL_FOUND)
+    # On CMake < 3.16, OPENSSL_CRYPTO_LIBRARIES is usually a synonym for OPENSSL_CRYPTO_LIBRARY, but is not defined
+    # when building on Windows outside of Cygwin. We provide the synonym here, if FindOpenSSL didn't define it already.
+    if (NOT DEFINED OPENSSL_CRYPTO_LIBRARIES)
+      set(OPENSSL_CRYPTO_LIBRARIES ${OPENSSL_CRYPTO_LIBRARY})
+    endif (NOT DEFINED OPENSSL_CRYPTO_LIBRARIES)
+  else (OPENSSL_FOUND)
     find_package(GCrypt)
     if (NOT GCRYPT_FOUND)
       find_package(MbedTLS)
@@ -76,7 +73,7 @@ else (WITH_GCRYPT)
         message(FATAL_ERROR "Could not find OpenSSL, GCrypt or mbedTLS")
       endif (NOT MBEDTLS_FOUND)
     endif (NOT GCRYPT_FOUND)
-  endif (NOT OPENSSL_FOUND)
+  endif (OPENSSL_FOUND)
 endif(WITH_GCRYPT)
 
 if (UNIT_TESTING)
@@ -212,10 +209,10 @@ if (WITH_SYMBOL_VERSIONING AND ABIMAP_FOUND)
     endif(UPDATE_ABI)
 endif (WITH_SYMBOL_VERSIONING AND ABIMAP_FOUND)
 
-add_custom_target(dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source DEPENDS ${_SYMBOL_TARGET})
+add_custom_target(dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source DEPENDS ${_SYMBOL_TARGET} VERBATIM)
 
 # Link compile database for clangd
-execute_process(COMMAND cmake -E create_symlink
+execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink
                 "${CMAKE_BINARY_DIR}/compile_commands.json"
                 "${CMAKE_SOURCE_DIR}/compile_commands.json")
 
