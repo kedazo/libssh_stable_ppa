@@ -19,6 +19,4 @@ for distro in xenial bionic focal jammy; do
 done
 
 dput ppa:kedazo/libssh-0.7.x ../libssh*.changes
-# now it is the same, release day!
-dput ppa:kedazo/libssh-master ../libssh*.changes
 

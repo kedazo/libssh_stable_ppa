@@ -1,3 +1,59 @@
+libssh (0.10.4-0up8) jammy; urgency=medium
+
+  * Team upload.
+  * Release for jammy.
+
+ -- David Kedves <kedz@kedz.eu>  Thu, 08 Sep 2022 13:11:52 +0200
+
+libssh (0.10.4-0up7) focal; urgency=medium
+
+  * Team upload.
+  * Release for focal.
+
+ -- David Kedves <kedz@kedz.eu>  Thu, 08 Sep 2022 13:11:51 +0200
+
+libssh (0.10.4-0up6) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <kedz@kedz.eu>  Thu, 08 Sep 2022 13:11:50 +0200
+
+libssh (0.10.4-0up5) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <kedz@kedz.eu>  Thu, 08 Sep 2022 13:11:48 +0200
+
+libssh (0.10.4-0up4) jammy; urgency=medium
+
+  * Team upload.
+  * Release for jammy.
+
+ -- David Kedves <kedz@kedz.eu>  Thu, 08 Sep 2022 13:06:37 +0200
+
+libssh (0.10.4-0up3) focal; urgency=medium
+
+  * Team upload.
+  * Release for focal.
+
+ -- David Kedves <kedz@kedz.eu>  Thu, 08 Sep 2022 13:06:35 +0200
+
+libssh (0.10.4-0up2) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <kedz@kedz.eu>  Thu, 08 Sep 2022 13:06:34 +0200
+
+libssh (0.10.4-0up1) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <kedz@kedz.eu>  Thu, 08 Sep 2022 13:06:32 +0200
+
 libssh (0.10.4-0up0) UNRELEASED; urgency=medium
 
   * Imported https://www.libssh.org/files/0.10/libssh-0.10.4.tar.xz
