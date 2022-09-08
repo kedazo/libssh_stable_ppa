@@ -1,3 +1,9 @@
+libssh (0.10.4-0up0) UNRELEASED; urgency=medium
+
+  * Imported https://www.libssh.org/files/0.10/libssh-0.10.4.tar.xz
+
+ -- David Kedves <kedz@kedz.eu>  Thu, 08 Sep 2022 13:06:08 +0200
+
 libssh (0.9.6-0up5) hirsute; urgency=medium
 
   * Team upload.
