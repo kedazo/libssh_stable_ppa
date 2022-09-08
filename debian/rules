@@ -23,7 +23,8 @@ override_dh_auto_configure:
 	dh_auto_configure -Bbuild-gcrypt -- \
 		$(DEB_CMAKE_EXTRA_FLAGS) \
 		-DWITH_GCRYPT=ON \
-		-DLIBSSH_LIBRARY_NAME=ssh-gcrypt
+		-DLIBSSH_LIBRARY_NAME=ssh-gcrypt \
+		-DCMAKE_SHARED_LIBRARY_SUFFIX="-gcrypt"
 
 override_dh_auto_build:
 	dh_auto_build -Bbuild-openssl

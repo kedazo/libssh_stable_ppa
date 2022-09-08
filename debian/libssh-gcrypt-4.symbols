@@ -4,6 +4,7 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  LIBSSH_4_7_0@LIBSSH_4_7_0 0.8.4-0up0
  LIBSSH_4_8_0@LIBSSH_4_8_0 0.9.0-0up1
  LIBSSH_4_8_1@LIBSSH_4_8_1 0.9.0-0up1
+ LIBSSH_4_9_0@LIBSSH_4_9_0 0.9.6-0up5
  _ssh_log@LIBSSH_4_5_0 0.8.1-0up0
  buffer_free@LIBSSH_4_5_0 0.8.1-0up0
  buffer_get@LIBSSH_4_5_0 0.8.1-0up0
@@ -155,6 +156,7 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  ssh_channel_new@LIBSSH_4_5_0 0.8.1-0up0
  ssh_channel_open_auth_agent@LIBSSH_4_5_0 0.8.1-0up0
  ssh_channel_open_forward@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_channel_open_forward_port@LIBSSH_4_9_0 0.9.6-0up5
  ssh_channel_open_forward_unix@LIBSSH_4_8_0 0.9.0-0up1
  ssh_channel_open_reverse_forward@LIBSSH_4_5_0 0.8.1-0up0
  ssh_channel_open_session@LIBSSH_4_5_0 0.8.1-0up0
@@ -247,6 +249,7 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  ssh_is_connected@LIBSSH_4_5_0 0.8.1-0up0
  ssh_is_server_known@LIBSSH_4_5_0 0.8.1-0up0
  ssh_key_cmp@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_key_dup@LIBSSH_4_9_0 0.9.6-0up5
  ssh_key_free@LIBSSH_4_5_0 0.8.1-0up0
  ssh_key_is_private@LIBSSH_4_5_0 0.8.1-0up0
  ssh_key_is_public@LIBSSH_4_5_0 0.8.1-0up0
@@ -352,6 +355,7 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  ssh_select@LIBSSH_4_5_0 0.8.1-0up0
  ssh_send_debug@LIBSSH_4_5_0 0.8.1-0up0
  ssh_send_ignore@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_send_issue_banner@LIBSSH_4_9_0 0.9.6-0up5
  ssh_send_keepalive@LIBSSH_4_5_0 0.8.1-0up0
  ssh_server_init_kex@LIBSSH_4_5_0 0.8.1-0up0
  ssh_service_request@LIBSSH_4_5_0 0.8.1-0up0
@@ -359,6 +363,7 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  ssh_session_get_known_hosts_entry@LIBSSH_4_8_1 0.9.0-0up1
  ssh_session_has_known_hosts_entry@LIBSSH_4_5_0 0.8.1-0up0
  ssh_session_is_known_server@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_session_set_disconnect_message@LIBSSH_4_9_0 0.9.6-0up5
  ssh_session_update_known_hosts@LIBSSH_4_5_0 0.8.1-0up0
  ssh_set_agent_channel@LIBSSH_4_5_0 0.8.1-0up0
  ssh_set_agent_socket@LIBSSH_4_5_0 0.8.1-0up0
@@ -413,8 +418,10 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  ssh_userauth_pubkey@LIBSSH_4_5_0 0.8.1-0up0
  ssh_userauth_publickey@LIBSSH_4_5_0 0.8.1-0up0
  ssh_userauth_publickey_auto@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_userauth_publickey_auto_get_current_identity@LIBSSH_4_9_0 0.9.6-0up5
  ssh_userauth_try_publickey@LIBSSH_4_5_0 0.8.1-0up0
  ssh_version@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_vlog@LIBSSH_4_9_0 0.9.6-0up5
  ssh_write_knownhost@LIBSSH_4_5_0 0.8.1-0up0
  string_burn@LIBSSH_4_5_0 0.8.1-0up0
  string_copy@LIBSSH_4_5_0 0.8.1-0up0
