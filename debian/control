@@ -10,7 +10,7 @@ Build-Depends: cmake (>= 2.6),
                libkrb5-dev | heimdal-dev,
                libssl-dev,
                libz-dev,
-               python,
+               python | python3,
                openssh-client,
                pkg-config
 Build-Depends-Indep: doxygen
