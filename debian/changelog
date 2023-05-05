@@ -1,3 +1,73 @@
+libssh (0.10.5-0up11) lunar; urgency=medium
+
+  * Team upload.
+  * Release for lunar.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 05 May 2023 10:09:31 +0200
+
+libssh (0.10.5-0up10) jammy; urgency=medium
+
+  * Team upload.
+  * Release for jammy.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 05 May 2023 10:09:29 +0200
+
+libssh (0.10.5-0up9) focal; urgency=medium
+
+  * Team upload.
+  * Release for focal.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 05 May 2023 10:09:28 +0200
+
+libssh (0.10.5-0up8) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 05 May 2023 10:09:26 +0200
+
+libssh (0.10.5-0up7) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 05 May 2023 10:09:25 +0200
+
+libssh (0.10.5-0up6) lunar; urgency=medium
+
+  * Team upload.
+  * Release for lunar.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 05 May 2023 09:41:57 +0200
+
+libssh (0.10.5-0up5) jammy; urgency=medium
+
+  * Team upload.
+  * Release for jammy.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 05 May 2023 09:41:55 +0200
+
+libssh (0.10.5-0up4) focal; urgency=medium
+
+  * Team upload.
+  * Release for focal.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 05 May 2023 09:41:54 +0200
+
+libssh (0.10.5-0up3) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 05 May 2023 09:41:52 +0200
+
+libssh (0.10.5-0up2) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 05 May 2023 09:41:51 +0200
+
 libssh (0.10.5-0up1) UNRELEASED; urgency=medium
 
   * New version for 0.10.5

@@ -12,7 +12,7 @@ read
 rm -fv ../libssh*
 
 # trusty is too old
-for distro in xenial bionic focal jammy; do
+for distro in xenial bionic focal jammy lunar; do
     debchange --team --distribution=$distro "Release for $distro."
 
     dpkg-buildpackage -rfakeroot -S
