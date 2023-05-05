@@ -3,9 +3,7 @@
 #
 if (${CMAKE_VERSION} VERSION_GREATER "3.8.99")
 
-if (WITH_INTERNAL_DOC)
 find_package(Doxygen)
-endif (WITH_INTERNAL_DOC)
 
 if (DOXYGEN_FOUND)
     set(DOXYGEN_PROJECT_NAME ${PROJECT_NAME})
@@ -20,7 +18,8 @@ if (DOXYGEN_FOUND)
     set(DOXYGEN_PREDEFINED DOXYGEN
                            WITH_SERVER
                            WITH_SFTP
-                           PRINTF_ATTRIBUTE(x,y))
+                           PRINTF_ATTRIBUTE\(x,y\))
+    set(DOXYGEN_DOT_GRAPH_MAX_NODES 100)
 
     set(DOXYGEN_EXCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/that_style)
     set(DOXYGEN_HTML_HEADER ${CMAKE_CURRENT_SOURCE_DIR}/that_style/header.html)

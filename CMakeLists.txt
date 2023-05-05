@@ -1,8 +1,5 @@
-cmake_minimum_required(VERSION 2.8.0)
-
-if (CMAKE_VERSION VERSION_GREATER 3.0.0)
+cmake_minimum_required(VERSION 3.3.0)
 cmake_policy(SET CMP0048 NEW)
-endif (CMAKE_VERSION VERSION_GREATER 3.0.0)
 
 # Specify search path for CMake modules to be loaded by include()
 # and find_package()
@@ -13,15 +10,9 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
 include(DefineCMakeDefaults)
 include(DefineCompilerFlags)
 
-if (CMAKE_VERSION VERSION_GREATER 3.0.0)
-project(libssh VERSION 0.10.4 LANGUAGES C)
-else (CMAKE_VERSION VERSION_GREATER 3.0.0)
-project(libssh LANGUAGES C)
-set(PROJECT_VERSION "0.10.4")
-endif (CMAKE_VERSION VERSION_GREATER 3.0.0)
+project(libssh VERSION 0.10.5 LANGUAGES C)
 
 # global needed variable
-
 set(APPLICATION_NAME ${PROJECT_NAME})
 
 # SOVERSION scheme: CURRENT.AGE.REVISION
@@ -31,7 +22,7 @@ set(APPLICATION_NAME ${PROJECT_NAME})
 #     Increment AGE. Set REVISION to 0
 #   If the source code was changed, but there were no interface changes:
 #     Increment REVISION.
-set(LIBRARY_VERSION "4.9.4")
+set(LIBRARY_VERSION "4.9.5")
 set(LIBRARY_SOVERSION "4")
 
 # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
@@ -112,9 +103,7 @@ if (WITH_NACL)
     endif (NOT NACL_FOUND)
 endif (WITH_NACL)
 
-if (BSD OR SOLARIS OR OSX OR CYGWIN)
-    find_package(Argp)
-endif (BSD OR SOLARIS OR OSX OR CYGWIN)
+find_package(Argp)
 
 # Disable symbol versioning in non UNIX platforms
 if (UNIX)
@@ -134,7 +123,7 @@ add_subdirectory(src)
 
 # pkg-config file
 if (UNIX OR MINGW)
-configure_file(libssh.pc.cmake ${CMAKE_CURRENT_BINARY_DIR}/libssh.pc)
+configure_file(libssh.pc.cmake ${CMAKE_CURRENT_BINARY_DIR}/libssh.pc @ONLY)
 install(
   FILES
     ${CMAKE_CURRENT_BINARY_DIR}/libssh.pc

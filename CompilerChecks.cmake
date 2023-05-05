@@ -38,8 +38,8 @@ if (UNIX)
     add_c_compiler_flag("-Wuninitialized" SUPPORTED_COMPILER_FLAGS)
     add_c_compiler_flag("-Werror=uninitialized" SUPPORTED_COMPILER_FLAGS)
     add_c_compiler_flag("-Wimplicit-fallthrough" SUPPORTED_COMPILER_FLAGS)
-    #add_c_compiler_flag("-Werror=strict-overflow" SUPPORTED_COMPILER_FLAGS)
-    #add_c_compiler_flag("-Wstrict-overflow=2" SUPPORTED_COMPILER_FLAGS)
+    add_c_compiler_flag("-Werror=strict-overflow" SUPPORTED_COMPILER_FLAGS)
+    add_c_compiler_flag("-Wstrict-overflow=2" SUPPORTED_COMPILER_FLAGS)
     add_c_compiler_flag("-Wno-format-zero-length" SUPPORTED_COMPILER_FLAGS)
     add_c_compiler_flag("-Wmissing-field-initializers" SUPPORTED_COMPILER_FLAGS)
     add_c_compiler_flag("-Wsign-compare" SUPPORTED_COMPILER_FLAGS)
@@ -54,9 +54,9 @@ if (UNIX)
 
     # Allow zero for a variadic macro argument
     string(TOLOWER "${CMAKE_C_COMPILER_ID}" _C_COMPILER_ID)
-    # if ("${_C_COMPILER_ID}" STREQUAL "clang")
-    #     add_c_compiler_flag("-Wno-gnu-zero-variadic-macro-arguments" SUPPORTED_COMPILER_FLAGS)
-    # endif()
+    if ("${_C_COMPILER_ID}" STREQUAL "clang")
+        add_c_compiler_flag("-Wno-gnu-zero-variadic-macro-arguments" SUPPORTED_COMPILER_FLAGS)
+    endif()
 
     add_c_compiler_flag("-fno-common" SUPPORTED_COMPILER_FLAGS)
 
@@ -70,7 +70,7 @@ if (UNIX)
     check_c_compiler_flag_ssp("-fstack-protector-strong" WITH_STACK_PROTECTOR_STRONG)
     if (WITH_STACK_PROTECTOR_STRONG)
         list(APPEND SUPPORTED_COMPILER_FLAGS "-fstack-protector-strong")
-        # This is needed as Solaris has a seperate libssp
+        # This is needed as Solaris has a separate libssp
         if (SOLARIS)
             list(APPEND SUPPORTED_LINKER_FLAGS "-fstack-protector-strong")
         endif()
@@ -78,7 +78,7 @@ if (UNIX)
         check_c_compiler_flag_ssp("-fstack-protector" WITH_STACK_PROTECTOR)
         if (WITH_STACK_PROTECTOR)
             list(APPEND SUPPORTED_COMPILER_FLAGS "-fstack-protector")
-            # This is needed as Solaris has a seperate libssp
+            # This is needed as Solaris has a separate libssp
             if (SOLARIS)
                 list(APPEND SUPPORTED_LINKER_FLAGS "-fstack-protector")
             endif()

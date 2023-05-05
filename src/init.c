@@ -22,13 +22,14 @@
  */
 
 #include "config.h"
+
+#include <stdio.h>
+
 #include "libssh/priv.h"
 #include "libssh/socket.h"
 #include "libssh/dh.h"
 #include "libssh/poll.h"
 #include "libssh/threads.h"
-
-#include <stdio.h>
 
 #ifdef _WIN32
 #include <winsock2.h>
@@ -280,7 +281,7 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL,
  *
  * @see ssh_init()
  */
-bool is_ssh_initialized() {
+bool is_ssh_initialized(void) {
 
     bool is_initialized = false;
 
