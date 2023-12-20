@@ -1,3 +1,9 @@
+libssh (0.10.6-0up0) UNRELEASED; urgency=medium
+
+  * New release
+
+ -- David Kedves <kedz@kedz.eu>  Wed, 20 Dec 2023 15:34:46 +0100
+
 libssh (0.10.5-0up16) lunar; urgency=medium
 
   * Team upload.
