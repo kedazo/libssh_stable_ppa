@@ -91,19 +91,10 @@ endif()
 if (WIN32)
   set(LIBSSH_LINK_LIBRARIES
     ${LIBSSH_LINK_LIBRARIES}
+    iphlpapi
     ws2_32
   )
 endif (WIN32)
-
-set(LIBSSH_LIBRARY_NAME
-  ssh
-  CACHE INTERNAL "libssh library name"
-)
-
-set(LIBSSH_SHARED_LIBRARY
-  ssh_shared
-  CACHE INTERNAL "libssh shared library"
-)
 
 if (BUILD_STATIC_LIB)
   set(LIBSSH_STATIC_LIBRARY
@@ -394,8 +385,6 @@ set_target_properties(ssh
         ${LIBRARY_VERSION}
       SOVERSION
         ${LIBRARY_SOVERSION}
-      OUTPUT_NAME
-        ${LIBSSH_LIBRARY_NAME}
       DEFINE_SYMBOL
         LIBSSH_EXPORTS
 )

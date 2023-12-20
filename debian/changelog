@@ -1,3 +1,17 @@
+libssh (0.10.5-0up16) lunar; urgency=medium
+
+  * Team upload.
+  * Release for lunar.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 05 May 2023 10:11:45 +0200
+
+libssh (0.10.5-0up15) jammy; urgency=medium
+
+  * Team upload.
+  * Release for jammy.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 05 May 2023 10:11:43 +0200
+
 libssh (0.10.5-0up14) focal; urgency=medium
 
   * Team upload.

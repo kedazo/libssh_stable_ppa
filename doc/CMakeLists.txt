@@ -3,9 +3,7 @@
 #
 if (${CMAKE_VERSION} VERSION_GREATER "3.8.99")
 
-if (WITH_INTERNAL_DOC)
 find_package(Doxygen)
-endif (WITH_INTERNAL_DOC)
 
 if (DOXYGEN_FOUND)
     set(DOXYGEN_PROJECT_NAME ${PROJECT_NAME})
