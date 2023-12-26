@@ -1,3 +1,9 @@
+libssh (0.10.6-0ipv6fix0) UNRELEASED; urgency=medium
+
+  * Applied patches for regression https://gitlab.com/libssh/libssh-mirror/-/issues/227
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 26 Dec 2023 03:34:25 +0100
+
 libssh (0.10.6-0up5) lunar; urgency=medium
 
   * Team upload.
