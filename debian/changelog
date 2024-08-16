@@ -1,4 +1,46 @@
-libssh (0.10.6-0ipv6fix0) UNRELEASED; urgency=medium
+libssh (0.10.6-1ipv6fix6) noble; urgency=medium
+
+  * Team upload.
+  * Release for noble.
+
+ -- David Kedves <kedz@kedz.eu>  Wed, 01 May 2024 15:54:10 +0200
+
+libssh (0.10.6-1ipv6fix5) lunar; urgency=medium
+
+  * Team upload.
+  * Release for lunar.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 26 Dec 2023 03:36:23 +0100
+
+libssh (0.10.6-1ipv6fix4) jammy; urgency=medium
+
+  * Team upload.
+  * Release for jammy.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 26 Dec 2023 03:36:22 +0100
+
+libssh (0.10.6-1ipv6fix3) focal; urgency=medium
+
+  * Team upload.
+  * Release for focal.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 26 Dec 2023 03:36:20 +0100
+
+libssh (0.10.6-1ipv6fix2) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 26 Dec 2023 03:36:19 +0100
+
+libssh (0.10.6-1ipv6fix1) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <kedz@kedz.eu>  Tue, 26 Dec 2023 03:36:17 +0100
+
+libssh (0.10.6-1ipv6fix0) UNRELEASED; urgency=medium
 
   * Applied patches for regression https://gitlab.com/libssh/libssh-mirror/-/issues/227
 
