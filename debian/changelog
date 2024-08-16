@@ -1,3 +1,17 @@
+libssh (0.11.0-1up10) noble; urgency=medium
+
+  * Team upload.
+  * Release for noble.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 16 Aug 2024 12:15:16 +0200
+
+libssh (0.11.0-1up9) jammy; urgency=medium
+
+  * Team upload.
+  * Release for jammy.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 16 Aug 2024 12:15:13 +0200
+
 libssh (0.11.0-1up8) mantic; urgency=medium
 
   * Team upload.
