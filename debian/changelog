@@ -1,3 +1,45 @@
+libssh (0.11.0-1up7) noble; urgency=medium
+
+  * Team upload.
+  * Release for noble.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 16 Aug 2024 12:05:51 +0200
+
+libssh (0.11.0-1up6) lunar; urgency=medium
+
+  * Team upload.
+  * Release for lunar.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 16 Aug 2024 12:01:50 +0200
+
+libssh (0.11.0-1up5) jammy; urgency=medium
+
+  * Team upload.
+  * Release for jammy.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 16 Aug 2024 12:01:48 +0200
+
+libssh (0.11.0-1up4) focal; urgency=medium
+
+  * Team upload.
+  * Release for focal.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 16 Aug 2024 12:01:45 +0200
+
+libssh (0.11.0-1up3) bionic; urgency=medium
+
+  * Team upload.
+  * Release for bionic.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 16 Aug 2024 12:01:43 +0200
+
+libssh (0.11.0-1up2) xenial; urgency=medium
+
+  * Team upload.
+  * Release for xenial.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 16 Aug 2024 12:01:40 +0200
+
 libssh (0.11.0-1up1) UNRELEASED; urgency=medium
 
   * Imported & patched build from https://www.libssh.org/files/0.11/libssh-0.11.0.tar.xz
