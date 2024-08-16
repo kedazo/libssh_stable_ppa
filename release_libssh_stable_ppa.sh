@@ -11,8 +11,8 @@ read
 
 rm -fv ../libssh*
 
-# trusty is too old
-for distro in xenial bionic focal jammy noble; do
+# libssh 0.11 it requires libssl >= 1.1.1, so only >= jammy
+for distro in jammy mantic noble; do
     debchange --team --distribution=$distro "Release for $distro."
 
     dpkg-buildpackage -rfakeroot -S
