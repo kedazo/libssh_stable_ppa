@@ -1,3 +1,9 @@
+libssh (0.11.0-1up1) UNRELEASED; urgency=medium
+
+  * Imported & patched build from https://www.libssh.org/files/0.11/libssh-0.11.0.tar.xz
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 16 Aug 2024 11:57:46 +0200
+
 libssh (0.10.6-1ipv6fix6) noble; urgency=medium
 
   * Team upload.

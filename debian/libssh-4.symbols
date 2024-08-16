@@ -1,4 +1,5 @@
 libssh.so.4 libssh-4 #MINVER#
+ LIBSSH_4_10_0@LIBSSH_4_10_0 0.11.0-1up1
  LIBSSH_4_5_0@LIBSSH_4_5_0 0.8.1-0up0
  LIBSSH_4_6_0@LIBSSH_4_6_0 0.8.2-0up1
  LIBSSH_4_7_0@LIBSSH_4_7_0 0.8.4-0up0
@@ -49,10 +50,17 @@ libssh.so.4 libssh-4 #MINVER#
  publickey_from_file@LIBSSH_4_5_0 0.8.1-0up0
  publickey_from_privatekey@LIBSSH_4_5_0 0.8.1-0up0
  publickey_to_string@LIBSSH_4_5_0 0.8.1-0up0
+ sftp_aio_begin_read@LIBSSH_4_10_0 0.11.0-1up1
+ sftp_aio_begin_write@LIBSSH_4_10_0 0.11.0-1up1
+ sftp_aio_free@LIBSSH_4_10_0 0.11.0-1up1
+ sftp_aio_wait_read@LIBSSH_4_10_0 0.11.0-1up1
+ sftp_aio_wait_write@LIBSSH_4_10_0 0.11.0-1up1
  sftp_async_read@LIBSSH_4_5_0 0.8.1-0up0
  sftp_async_read_begin@LIBSSH_4_5_0 0.8.1-0up0
  sftp_attributes_free@LIBSSH_4_5_0 0.8.1-0up0
  sftp_canonicalize_path@LIBSSH_4_5_0 0.8.1-0up0
+ sftp_channel_default_data_callback@LIBSSH_4_10_0 0.11.0-1up1
+ sftp_channel_default_subsystem_request@LIBSSH_4_10_0 0.11.0-1up1
  sftp_chmod@LIBSSH_4_5_0 0.8.1-0up0
  sftp_chown@LIBSSH_4_5_0 0.8.1-0up0
  sftp_client_message_free@LIBSSH_4_5_0 0.8.1-0up0
@@ -65,6 +73,7 @@ libssh.so.4 libssh-4 #MINVER#
  sftp_close@LIBSSH_4_5_0 0.8.1-0up0
  sftp_closedir@LIBSSH_4_5_0 0.8.1-0up0
  sftp_dir_eof@LIBSSH_4_5_0 0.8.1-0up0
+ sftp_expand_path@LIBSSH_4_10_0 0.11.0-1up1
  sftp_extension_supported@LIBSSH_4_5_0 0.8.1-0up0
  sftp_extensions_get_count@LIBSSH_4_5_0 0.8.1-0up0
  sftp_extensions_get_data@LIBSSH_4_5_0 0.8.1-0up0
@@ -80,7 +89,12 @@ libssh.so.4 libssh-4 #MINVER#
  sftp_handle@LIBSSH_4_5_0 0.8.1-0up0
  sftp_handle_alloc@LIBSSH_4_5_0 0.8.1-0up0
  sftp_handle_remove@LIBSSH_4_5_0 0.8.1-0up0
+ sftp_hardlink@LIBSSH_4_10_0 0.11.0-1up1
+ sftp_home_directory@LIBSSH_4_10_0 0.11.0-1up1
  sftp_init@LIBSSH_4_5_0 0.8.1-0up0
+ sftp_limits@LIBSSH_4_10_0 0.11.0-1up1
+ sftp_limits_free@LIBSSH_4_10_0 0.11.0-1up1
+ sftp_lsetstat@LIBSSH_4_10_0 0.11.0-1up1
  sftp_lstat@LIBSSH_4_5_0 0.8.1-0up0
  sftp_mkdir@LIBSSH_4_5_0 0.8.1-0up0
  sftp_new@LIBSSH_4_5_0 0.8.1-0up0
@@ -147,6 +161,7 @@ libssh.so.4 libssh-4 #MINVER#
  ssh_channel_change_pty_size@LIBSSH_4_5_0 0.8.1-0up0
  ssh_channel_close@LIBSSH_4_5_0 0.8.1-0up0
  ssh_channel_free@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_channel_get_exit_state@LIBSSH_4_10_0 0.11.0-1up1
  ssh_channel_get_exit_status@LIBSSH_4_5_0 0.8.1-0up0
  ssh_channel_get_session@LIBSSH_4_5_0 0.8.1-0up0
  ssh_channel_is_closed@LIBSSH_4_5_0 0.8.1-0up0
@@ -171,6 +186,7 @@ libssh.so.4 libssh-4 #MINVER#
  ssh_channel_request_exec@LIBSSH_4_5_0 0.8.1-0up0
  ssh_channel_request_pty@LIBSSH_4_5_0 0.8.1-0up0
  ssh_channel_request_pty_size@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_channel_request_pty_size_modes@LIBSSH_4_10_0 0.11.0-1up1
  ssh_channel_request_send_break@LIBSSH_4_5_0 0.8.1-0up0
  ssh_channel_request_send_exit_signal@LIBSSH_4_5_0 0.8.1-0up0
  ssh_channel_request_send_exit_status@LIBSSH_4_5_0 0.8.1-0up0
@@ -317,7 +333,9 @@ libssh.so.4 libssh-4 #MINVER#
  ssh_pcap_file_open@LIBSSH_4_5_0 0.8.1-0up0
  ssh_pki_copy_cert_to_privkey@LIBSSH_4_5_0 0.8.1-0up0
  ssh_pki_export_privkey_base64@LIBSSH_4_7_0 0.8.4-0up0
+ ssh_pki_export_privkey_base64_format@LIBSSH_4_10_0 0.11.0-1up1
  ssh_pki_export_privkey_file@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_pki_export_privkey_file_format@LIBSSH_4_10_0 0.11.0-1up1
  ssh_pki_export_privkey_to_pubkey@LIBSSH_4_5_0 0.8.1-0up0
  ssh_pki_export_pubkey_base64@LIBSSH_4_5_0 0.8.1-0up0
  ssh_pki_export_pubkey_file@LIBSSH_4_5_0 0.8.1-0up0
@@ -334,6 +352,7 @@ libssh.so.4 libssh-4 #MINVER#
  ssh_privatekey_type@LIBSSH_4_5_0 0.8.1-0up0
  ssh_publickey_to_file@LIBSSH_4_5_0 0.8.1-0up0
  ssh_remove_channel_callbacks@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_request_no_more_sessions@LIBSSH_4_10_0 0.11.0-1up1
  ssh_scp_accept_request@LIBSSH_4_5_0 0.8.1-0up0
  ssh_scp_close@LIBSSH_4_5_0 0.8.1-0up0
  ssh_scp_deny_request@LIBSSH_4_5_0 0.8.1-0up0
