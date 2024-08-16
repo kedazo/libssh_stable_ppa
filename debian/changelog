@@ -1,3 +1,10 @@
+libssh (0.11.0-1up8) mantic; urgency=medium
+
+  * Team upload.
+  * Release for mantic.
+
+ -- David Kedves <kedz@kedz.eu>  Fri, 16 Aug 2024 12:13:21 +0200
+
 libssh (0.11.0-1up7) noble; urgency=medium
 
   * Team upload.
