@@ -1,3 +1,9 @@
+libssh (0.11.1-1up1) UNRELEASED; urgency=medium
+
+  * Import from https://www.libssh.org/files/0.11/libssh-0.11.1.tar.xz
+
+ -- David Kedves <kedz@kedz.eu>  Mon, 02 Sep 2024 09:10:28 +0200
+
 libssh (0.11.0-1up10) noble; urgency=medium
 
   * Team upload.
