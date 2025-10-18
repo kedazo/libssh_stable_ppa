@@ -37,13 +37,13 @@
 #include "libssh/session.h"
 #include "libssh/ssh2.h"
 
-#ifndef HAVE_LIBGCRYPT
+#ifndef HAVE_GCRYPT_MLKEM
 static void crypto_random(void *ctx, size_t length, uint8_t *dst)
 {
     int *err = ctx;
     *err = ssh_get_random(dst, length, 1);
 }
-#endif /* HAVE_LIBGCRYPT */
+#endif /* HAVE_GCRYPT_MLKEM */
 
 static SSH_PACKET_CALLBACK(ssh_packet_client_sntrup761x25519_reply);
 
@@ -69,7 +69,7 @@ static int ssh_sntrup761x25519_init(ssh_session session)
     }
 
     if (!session->server) {
-#ifdef HAVE_LIBGCRYPT
+#ifdef HAVE_GCRYPT_MLKEM
         gcry_error_t err;
 
         err = gcry_kem_keypair(GCRY_KEM_SNTRUP761,
@@ -93,7 +93,7 @@ static int ssh_sntrup761x25519_init(ssh_session session)
                     "Failed to generate sntrup761 key: PRNG failure");
             return SSH_ERROR;
         }
-#endif /* HAVE_LIBGCRYPT */
+#endif /* HAVE_GCRYPT_MLKEM */
     }
 
     return SSH_OK;
@@ -153,7 +153,7 @@ static int ssh_sntrup761x25519_build_k(ssh_session session)
     ssh_log_hexdump("Curve25519 shared secret", k, CURVE25519_PUBKEY_SIZE);
 #endif
 
-#ifdef HAVE_LIBGCRYPT
+#ifdef HAVE_GCRYPT_MLKEM
     if (session->server) {
         gcry_error_t err;
         err = gcry_kem_encap(GCRY_KEM_SNTRUP761,
@@ -207,7 +207,7 @@ static int ssh_sntrup761x25519_build_k(ssh_session session)
                       session->next_crypto->sntrup761_ciphertext,
                       session->next_crypto->sntrup761_privkey);
     }
-#endif /* HAVE_LIBGCRYPT */
+#endif /* HAVE_GCRYPT_MLKEM */
 
 #ifdef DEBUG_CRYPTO
     ssh_log_hexdump("server cipher text",

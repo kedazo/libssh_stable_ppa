@@ -1,5 +1,6 @@
 libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  LIBSSH_4_10_0@LIBSSH_4_10_0 0.11.0-1up1
+ LIBSSH_4_11_0@LIBSSH_4_11_0 0.11.3-1up2
  LIBSSH_4_5_0@LIBSSH_4_5_0 0.8.1-0up0
  LIBSSH_4_6_0@LIBSSH_4_6_0 0.8.2-0up1
  LIBSSH_4_7_0@LIBSSH_4_7_0 0.8.4-0up0
@@ -86,6 +87,7 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  sftp_fsync@LIBSSH_4_5_0 0.8.1-0up0
  sftp_get_client_message@LIBSSH_4_5_0 0.8.1-0up0
  sftp_get_error@LIBSSH_4_5_0 0.8.1-0up0
+ sftp_get_users_groups_by_id@LIBSSH_4_11_0 0.11.3-1up2
  sftp_handle@LIBSSH_4_5_0 0.8.1-0up0
  sftp_handle_alloc@LIBSSH_4_5_0 0.8.1-0up0
  sftp_handle_remove@LIBSSH_4_5_0 0.8.1-0up0
@@ -97,6 +99,8 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  sftp_lsetstat@LIBSSH_4_10_0 0.11.0-1up1
  sftp_lstat@LIBSSH_4_5_0 0.8.1-0up0
  sftp_mkdir@LIBSSH_4_5_0 0.8.1-0up0
+ sftp_name_id_map_free@LIBSSH_4_11_0 0.11.3-1up2
+ sftp_name_id_map_new@LIBSSH_4_11_0 0.11.3-1up2
  sftp_new@LIBSSH_4_5_0 0.8.1-0up0
  sftp_new_channel@LIBSSH_4_5_0 0.8.1-0up0
  sftp_open@LIBSSH_4_5_0 0.8.1-0up0
@@ -255,6 +259,7 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  ssh_get_server_publickey@LIBSSH_4_5_0 0.8.1-0up0
  ssh_get_serverbanner@LIBSSH_4_5_0 0.8.1-0up0
  ssh_get_status@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_get_supported_methods@LIBSSH_4_11_0 0.11.3-1up2
  ssh_get_version@LIBSSH_4_5_0 0.8.1-0up0
  ssh_getpass@LIBSSH_4_5_0 0.8.1-0up0
  ssh_gssapi_get_creds@LIBSSH_4_5_0 0.8.1-0up0
@@ -267,6 +272,9 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  ssh_key_cmp@LIBSSH_4_5_0 0.8.1-0up0
  ssh_key_dup@LIBSSH_4_9_0 0.9.6-0up5
  ssh_key_free@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_key_get_sk_application@LIBSSH_4_11_0 0.11.3-1up2
+ ssh_key_get_sk_flags@LIBSSH_4_11_0 0.11.3-1up2
+ ssh_key_get_sk_user_id@LIBSSH_4_11_0 0.11.3-1up2
  ssh_key_is_private@LIBSSH_4_5_0 0.8.1-0up0
  ssh_key_is_public@LIBSSH_4_5_0 0.8.1-0up0
  ssh_key_new@LIBSSH_4_5_0 0.8.1-0up0
@@ -332,6 +340,13 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  ssh_pcap_file_new@LIBSSH_4_5_0 0.8.1-0up0
  ssh_pcap_file_open@LIBSSH_4_5_0 0.8.1-0up0
  ssh_pki_copy_cert_to_privkey@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_pki_ctx_free@LIBSSH_4_11_0 0.11.3-1up2
+ ssh_pki_ctx_get_sk_attestation_buffer@LIBSSH_4_11_0 0.11.3-1up2
+ ssh_pki_ctx_new@LIBSSH_4_11_0 0.11.3-1up2
+ ssh_pki_ctx_options_set@LIBSSH_4_11_0 0.11.3-1up2
+ ssh_pki_ctx_set_sk_pin_callback@LIBSSH_4_11_0 0.11.3-1up2
+ ssh_pki_ctx_sk_callbacks_option_set@LIBSSH_4_11_0 0.11.3-1up2
+ ssh_pki_ctx_sk_callbacks_options_clear@LIBSSH_4_11_0 0.11.3-1up2
  ssh_pki_export_privkey_base64@LIBSSH_4_7_0 0.8.4-0up0
  ssh_pki_export_privkey_base64_format@LIBSSH_4_10_0 0.11.0-1up1
  ssh_pki_export_privkey_file@LIBSSH_4_5_0 0.8.1-0up0
@@ -340,6 +355,7 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  ssh_pki_export_pubkey_base64@LIBSSH_4_5_0 0.8.1-0up0
  ssh_pki_export_pubkey_file@LIBSSH_4_5_0 0.8.1-0up0
  ssh_pki_generate@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_pki_generate_key@LIBSSH_4_11_0 0.11.3-1up2
  ssh_pki_import_cert_base64@LIBSSH_4_5_0 0.8.1-0up0
  ssh_pki_import_cert_file@LIBSSH_4_5_0 0.8.1-0up0
  ssh_pki_import_privkey_base64@LIBSSH_4_5_0 0.8.1-0up0
@@ -402,12 +418,14 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  ssh_set_server_callbacks@LIBSSH_4_5_0 0.8.1-0up0
  ssh_silent_disconnect@LIBSSH_4_5_0 0.8.1-0up0
  ssh_string_burn@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_string_cmp@LIBSSH_4_11_0 0.11.3-1up2
  ssh_string_copy@LIBSSH_4_5_0 0.8.1-0up0
  ssh_string_data@LIBSSH_4_5_0 0.8.1-0up0
  ssh_string_fill@LIBSSH_4_5_0 0.8.1-0up0
  ssh_string_free@LIBSSH_4_5_0 0.8.1-0up0
  ssh_string_free_char@LIBSSH_4_5_0 0.8.1-0up0
  ssh_string_from_char@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_string_from_data@LIBSSH_4_11_0 0.11.3-1up2
  ssh_string_get_char@LIBSSH_4_5_0 0.8.1-0up0
  ssh_string_len@LIBSSH_4_5_0 0.8.1-0up0
  ssh_string_new@LIBSSH_4_5_0 0.8.1-0up0
@@ -442,6 +460,8 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  ssh_version@LIBSSH_4_5_0 0.8.1-0up0
  ssh_vlog@LIBSSH_4_9_0 0.9.6-0up5
  ssh_write_knownhost@LIBSSH_4_5_0 0.8.1-0up0
+ sshsig_sign@LIBSSH_4_11_0 0.11.3-1up2
+ sshsig_verify@LIBSSH_4_11_0 0.11.3-1up2
  string_burn@LIBSSH_4_5_0 0.8.1-0up0
  string_copy@LIBSSH_4_5_0 0.8.1-0up0
  string_data@LIBSSH_4_5_0 0.8.1-0up0

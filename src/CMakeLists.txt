@@ -78,6 +78,16 @@ if (WIN32)
   )
 endif (WIN32)
 
+set(LIBSSH_LIBRARY_NAME
+  ssh
+  CACHE INTERNAL "libssh library name"
+)
+
+set(LIBSSH_SHARED_LIBRARY
+  ssh_shared
+  CACHE INTERNAL "libssh shared library"
+)
+
 if (BUILD_STATIC_LIB)
   set(LIBSSH_STATIC_LIBRARY
     ssh_static
@@ -202,6 +212,11 @@ if (WITH_GCRYPT)
         set(libssh_SRCS
             ${libssh_SRCS}
             mlkem_gcrypt.c
+        )
+    else ()
+        set(libssh_SRCS
+            ${libssh_SRCS}
+            external/sntrup761.c
         )
     endif (HAVE_GCRYPT_MLKEM)
 elseif (WITH_MBEDTLS)
@@ -416,6 +431,8 @@ set_target_properties(ssh
         ${LIBRARY_VERSION}
       SOVERSION
         ${LIBRARY_SOVERSION}
+      OUTPUT_NAME
+        ${LIBSSH_LIBRARY_NAME}
       DEFINE_SYMBOL
         LIBSSH_EXPORTS
 )
