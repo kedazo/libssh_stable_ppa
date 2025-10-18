@@ -1,3 +1,17 @@
+libssh (0.11.3-1up2) noble; urgency=medium
+
+  * Team upload.
+  * Release for noble.
+
+ -- David Kedves <kedz@kedz.eu>  Sat, 18 Oct 2025 20:51:52 +0200
+
+libssh (0.11.3-1up1) jammy; urgency=medium
+
+  * Team upload.
+  * Release for jammy.
+
+ -- David Kedves <kedz@kedz.eu>  Sat, 18 Oct 2025 20:51:49 +0200
+
 libssh (0.11.3-1up0) UNRELEASED; urgency=medium
 
   * Import from https://www.libssh.org/files/0.11/libssh-0.11.3.tar.xz 
