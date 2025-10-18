@@ -1,6 +1,7 @@
 set(LIBSSH_PUBLIC_INCLUDE_DIRS ${libssh_SOURCE_DIR}/include)
 
 set(LIBSSH_PRIVATE_INCLUDE_DIRS
+  ${libssh_BINARY_DIR}/include
   ${libssh_BINARY_DIR}
 )
 
@@ -12,27 +13,13 @@ if (TARGET OpenSSL::Crypto)
   list(APPEND LIBSSH_LINK_LIBRARIES OpenSSL::Crypto)
 endif ()
 
-if (MBEDTLS_CRYPTO_LIBRARY)
-    set(LIBSSH_PRIVATE_INCLUDE_DIRS
-      ${LIBSSH_PRIVATE_INCLUDE_DIRS}
-      ${MBEDTLS_INCLUDE_DIR}
-    )
-  set(LIBSSH_LINK_LIBRARIES
-    ${LIBSSH_LINK_LIBRARIES}
-    ${MBEDTLS_CRYPTO_LIBRARY}
-  )
-endif (MBEDTLS_CRYPTO_LIBRARY)
+if (TARGET MbedTLS::mbedcrypto)
+  list(APPEND LIBSSH_LINK_LIBRARIES MbedTLS::mbedcrypto)
+endif ()
 
-if (GCRYPT_LIBRARIES)
-  set(LIBSSH_PRIVATE_INCLUDE_DIRS
-    ${LIBSSH_PRIVATE_INCLUDE_DIRS}
-    ${GCRYPT_INCLUDE_DIR}
-  )
-
-  set(LIBSSH_LINK_LIBRARIES
-    ${LIBSSH_LINK_LIBRARIES}
-    ${GCRYPT_LIBRARIES})
-endif()
+if (TARGET libgcrypt::libgcrypt)
+  list(APPEND LIBSSH_LINK_LIBRARIES ${GCRYPT_LIBRARIES})
+endif ()
 
 if (WITH_ZLIB)
   list(APPEND LIBSSH_LINK_LIBRARIES ZLIB::ZLIB)
@@ -79,16 +66,6 @@ if (WIN32)
   )
 endif (WIN32)
 
-set(LIBSSH_LIBRARY_NAME
-  ssh
-  CACHE INTERNAL "libssh library name"
-)
-
-set(LIBSSH_SHARED_LIBRARY
-  ssh_shared
-  CACHE INTERNAL "libssh shared library"
-)
-
 if (BUILD_STATIC_LIB)
   set(LIBSSH_STATIC_LIBRARY
     ssh_static
@@ -114,6 +91,7 @@ set(libssh_SRCS
   ecdh.c
   error.c
   getpass.c
+  gzip.c
   init.c
   kdf.c
   kex.c
@@ -275,13 +253,6 @@ if (WITH_GEX)
   )
 endif (WITH_GEX)
 
-if (WITH_ZLIB)
-  set(libssh_SRCS
-    ${libssh_SRCS}
-    gzip.c
-  )
-endif(WITH_ZLIB)
-
 if (WITH_GSSAPI AND GSSAPI_FOUND)
   set(libssh_SRCS
     ${libssh_SRCS}
@@ -371,8 +342,6 @@ set_target_properties(ssh
         ${LIBRARY_VERSION}
       SOVERSION
         ${LIBRARY_SOVERSION}
-      OUTPUT_NAME
-        ${LIBSSH_LIBRARY_NAME}
       DEFINE_SYMBOL
         LIBSSH_EXPORTS
 )
