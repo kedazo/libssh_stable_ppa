@@ -52,6 +52,12 @@ int crypto_thread_init(struct ssh_threads_callbacks_struct *user_callbacks)
 #elif defined MBEDTLS_THREADING_PTHREAD
     return SSH_OK;
 #else
+    fprintf(stderr,
+            "MbedTLS needs to have threading enabled with "
+            "MBEDTLS_THREADING_PTHREAD or MBEDTLS_THREADING_ALT "
+            "in mbedtls_config.h\n");
+#warn "MbedTLS needs to have threading enabled with " \
+      "MBEDTLS_THREADING_PTHREAD or MBEDTLS_THREADING_ALT in mbedtls_config.h"
     return SSH_ERROR;
 #endif
 }
