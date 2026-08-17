@@ -12,7 +12,7 @@ read
 rm -fv ../libssh*
 
 # libssh 0.11 it requires libssl >= 1.1.1, so only >= jammy
-for distro in jammy noble questing; do
+for distro in jammy noble questing resolute; do
     debchange --team --distribution=$distro "Release for $distro."
 
     dpkg-buildpackage -rfakeroot -S
