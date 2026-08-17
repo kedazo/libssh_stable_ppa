@@ -1,0 +1,14 @@
+# Out-of-tree build dirs used by debian/rules and .claude/skills/release-libssh-ppa
+/build-openssl/
+/build-gcrypt/
+/build-area/
+
+# Scratch space for the release driver (downloads, logs, sandbox clones)
+/tmp/
+
+# Local dev leftovers
+/compile_commands.json
+/debian/files
+/debian/tmp-gcrypt/
+/debian/home-openssl/
+/debian/home-gcrypt/
