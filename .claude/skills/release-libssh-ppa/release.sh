@@ -307,6 +307,20 @@ flavour_lib() {  # echo path of the built .so for a flavour
 }
 
 cmd_build() {
+    # CMake 4.x removed compatibility with cmake_minimum_required < 3.5, so a
+    # too-low minimum configures fine here but hard-fails on the newer builders
+    # (this killed 0.12.2-1up4/-1up5 on resolute/stonking). Catch it locally,
+    # where the version number has not been burned yet.
+    local minreq
+    minreq="$(sed -n 's/^[[:space:]]*cmake_minimum_required([[:space:]]*VERSION[[:space:]]*\([0-9][0-9.]*\).*/\1/Ip' \
+        "$REPO/CMakeLists.txt" | head -1)"
+    [ -n "$minreq" ] || die "cannot read cmake_minimum_required from CMakeLists.txt"
+    if [ "$(printf '%s\n3.5\n' "$minreq" | sort -V | head -1)" != "3.5" ]; then
+        die "cmake_minimum_required is $minreq — CMake 4.x rejects anything below 3.5.
+  Builds would fail on resolute/stonking. Restore upstream's value in CMakeLists.txt."
+    fi
+    ok "cmake_minimum_required $minreq (>= 3.5, safe for CMake 4.x builders)"
+
     say "building both flavours (same flags as debian/rules)"
     local common=(-DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_STATIC_LIB=ON
                   -DWITH_GSSAPI=ON -DWITH_NACL=0)

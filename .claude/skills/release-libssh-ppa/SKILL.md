@@ -116,13 +116,25 @@ Add `--no-commit` to stage instead of commit.
   **5.03 MB to 1.18 MB** and leaves all 598 tracked files intact.
 - **`-Zxz` does not work here**: `dpkg-source: error: can't build with source format '1.0':
   only supports gzip compression`.
-- **`cherry-pick` of the patch commit conflicts in exactly two files, both handled:**
-  - `CMakeLists.txt` — upstream bumps `project(libssh VERSION …)`, the patch pins the old
-    literal. Resolved by keeping the patch's cmake-2.8-compat `if/else` block and
-    substituting upstream's version into both `project()` and `set(PROJECT_VERSION …)`.
-  - `release_libssh_stable_ppa.sh` (and `debian/changelog`, `debian/*.symbols`) — the patch
-    commit carries these from the cycle it was authored in, so **HEAD always wins**. This
-    is why editing the series list no longer breaks the next cherry-pick.
+- **NEVER lower `cmake_minimum_required` below 3.5.** CMake 4.x removed compatibility with
+  `< 3.5` outright, so configure dies at `CMakeLists.txt:1` before anything else runs. The
+  patch set used to downgrade upstream's `cmake_minimum_required(VERSION 3.14.0)` to `2.8.0`
+  and wrap `project()` in `if (CMAKE_VERSION VERSION_GREATER 3.0.0)` blocks; that killed the
+  0.12.2-1up4/-1up5 builds on **resolute (cmake 4.2)** and **stonking (cmake 4.3)** while
+  jammy (3.22) and noble (3.28) passed. Fixed on 2026-08-17 by dropping the hack entirely —
+  every target series is ≥ 3.22, well above upstream's own 3.14 floor. **`CMakeLists.txt` is
+  no longer patched at all**, so the version now flows straight from upstream.
+- **The patch set is 6 files** (`CPackConfig.cmake`, `CompilerChecks.cmake`,
+  `ConfigureChecks.cmake`, `src/CMakeLists.txt`, `src/init.c`, `src/sntrup761.c`). The
+  authoritative commit is tagged **`patchset-0.12.2`** (`29839f1`), parented on the 0.12.2
+  import. `last_patch_commit` picks the newest `Patching for .deb building.` by commit date,
+  and `git log --all` sees tags — do not delete that tag, or the cherry-pick falls back to
+  `9bdcfdc`, which still carries the cmake 2.8 downgrade.
+- **`cherry-pick` of the patch commit conflicts in `release_libssh_stable_ppa.sh`** (and
+  `debian/changelog`, `debian/*.symbols`) — the patch commit carries these from the cycle it
+  was authored in, so **HEAD always wins**. This is why editing the series list no longer
+  breaks the next cherry-pick. The `CMakeLists.txt` auto-resolver in `cmd_patch` is now
+  vestigial: with `CMakeLists.txt` out of the patch set there is nothing left to conflict.
 - **`debian/rules` passes `-DWITH_STATIC_LIB=ON`, which libssh 0.12 ignores**
   (`CMake Warning: Manually-specified variables were not used by the project`). Harmless.
   `BUILD_STATIC_LIB` is the live one, and it puts `libssh.a` in `<build>/src/`, not `<build>/lib/`.
