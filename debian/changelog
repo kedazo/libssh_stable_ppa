@@ -1,3 +1,31 @@
+libssh (0.12.2-1up5) stonking; urgency=medium
+
+  * Team upload.
+  * Release for stonking.
+
+ -- David Kedves <kedz@kedz.eu>  Mon, 17 Aug 2026 12:51:25 +0200
+
+libssh (0.12.2-1up4) resolute; urgency=medium
+
+  * Team upload.
+  * Release for resolute.
+
+ -- David Kedves <kedz@kedz.eu>  Mon, 17 Aug 2026 12:51:23 +0200
+
+libssh (0.12.2-1up3) noble; urgency=medium
+
+  * Team upload.
+  * Release for noble.
+
+ -- David Kedves <kedz@kedz.eu>  Mon, 17 Aug 2026 12:51:21 +0200
+
+libssh (0.12.2-1up2) jammy; urgency=medium
+
+  * Team upload.
+  * Release for jammy.
+
+ -- David Kedves <kedz@kedz.eu>  Mon, 17 Aug 2026 12:51:19 +0200
+
 libssh (0.12.2-1up1) UNRELEASED; urgency=medium
 
   * Import from https://www.libssh.org/files/0.12/libssh-0.12.2.tar.xz
