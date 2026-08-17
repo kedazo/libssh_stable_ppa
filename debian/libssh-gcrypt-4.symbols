@@ -1,6 +1,7 @@
 libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  LIBSSH_4_10_0@LIBSSH_4_10_0 0.11.0-1up1
  LIBSSH_4_11_0@LIBSSH_4_11_0 0.11.3-1up2
+ LIBSSH_4_12_0@LIBSSH_4_12_0 0.12.2-1up1
  LIBSSH_4_5_0@LIBSSH_4_5_0 0.8.1-0up0
  LIBSSH_4_6_0@LIBSSH_4_6_0 0.8.2-0up1
  LIBSSH_4_7_0@LIBSSH_4_7_0 0.8.4-0up0
@@ -363,8 +364,8 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  ssh_pki_import_pubkey_base64@LIBSSH_4_5_0 0.8.1-0up0
  ssh_pki_import_pubkey_file@LIBSSH_4_5_0 0.8.1-0up0
  ssh_pki_key_ecdsa_name@LIBSSH_4_5_0 0.8.1-0up0
- ssh_print_hexa@LIBSSH_4_5_0 0.8.1-0up0
  ssh_print_hash@LIBSSH_4_6_0 0.8.2-0up1
+ ssh_print_hexa@LIBSSH_4_5_0 0.8.1-0up0
  ssh_privatekey_type@LIBSSH_4_5_0 0.8.1-0up0
  ssh_publickey_to_file@LIBSSH_4_5_0 0.8.1-0up0
  ssh_remove_channel_callbacks@LIBSSH_4_5_0 0.8.1-0up0
@@ -398,6 +399,7 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  ssh_session_get_known_hosts_entry@LIBSSH_4_8_1 0.9.0-0up1
  ssh_session_has_known_hosts_entry@LIBSSH_4_5_0 0.8.1-0up0
  ssh_session_is_known_server@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_session_kex_is_gss@LIBSSH_4_12_0 0.12.2-1up1
  ssh_session_set_disconnect_message@LIBSSH_4_9_0 0.9.6-0up5
  ssh_session_update_known_hosts@LIBSSH_4_5_0 0.8.1-0up0
  ssh_set_agent_channel@LIBSSH_4_5_0 0.8.1-0up0
@@ -439,6 +441,7 @@ libssh-gcrypt.so.4 libssh-gcrypt-4 #MINVER#
  ssh_userauth_agent_pubkey@LIBSSH_4_5_0 0.8.1-0up0
  ssh_userauth_autopubkey@LIBSSH_4_5_0 0.8.1-0up0
  ssh_userauth_gssapi@LIBSSH_4_5_0 0.8.1-0up0
+ ssh_userauth_gssapi_keyex@LIBSSH_4_12_0 0.12.2-1up1
  ssh_userauth_kbdint@LIBSSH_4_5_0 0.8.1-0up0
  ssh_userauth_kbdint_getanswer@LIBSSH_4_5_0 0.8.1-0up0
  ssh_userauth_kbdint_getinstruction@LIBSSH_4_5_0 0.8.1-0up0
