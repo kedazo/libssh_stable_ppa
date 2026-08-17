@@ -1187,6 +1187,7 @@ ssh_execute_command(const char *command, socket_t in, socket_t out)
 int
 ssh_socket_connect_proxycommand(ssh_socket s, const char *command)
 {
+    char err_msg[SSH_ERRNO_MSG_MAX] = {0};
     socket_t pair[2];
     ssh_poll_handle h = NULL;
     int pid;
@@ -1205,7 +1206,17 @@ ssh_socket_connect_proxycommand(ssh_socket s, const char *command)
     pid = fork();
     if (pid == 0) {
         ssh_execute_command(command, pair[0], pair[0]);
-        /* Does not return */
+        /* child: Does not return */
+    }
+    /* parent */
+    if (pid == -1) {
+        close(pair[0]);
+        close(pair[1]);
+        ssh_set_error(s->session,
+                      SSH_FATAL,
+                      "fork failed: %s",
+                      ssh_strerror(errno, err_msg, SSH_ERRNO_MSG_MAX));
+        return SSH_ERROR;
     }
     s->proxy_pid = pid;
     close(pair[0]);
@@ -1300,8 +1311,21 @@ jump_thread_func(void *arg)
     next_hostname = jump_thread_data->next_hostname;
 
     ssh_options_set(jump_session, SSH_OPTIONS_HOST, jis->hostname);
-    ssh_options_set(jump_session, SSH_OPTIONS_USER, jis->username);
-    ssh_options_set(jump_session, SSH_OPTIONS_PORT, &jis->port);
+
+    /*
+     * Only propagate the username and port that the ProxyJump specification
+     * actually provided. Setting them unconditionally would inject internal
+     * defaults (the local username and port 22) as if the application had
+     * chosen them, which then prevents the jump host's own configuration from
+     * supplying these values (issue #365). When they are omitted here, the jump
+     * host config and the connection internals fill them in.
+     */
+    if (jis->username != NULL) {
+        ssh_options_set(jump_session, SSH_OPTIONS_USER, jis->username);
+    }
+    if (jis->port > 0) {
+        ssh_options_set(jump_session, SSH_OPTIONS_PORT, &jis->port);
+    }
 
     if (cb != NULL && cb->before_connection != NULL) {
         rc = cb->before_connection(jump_session, cb->userdata);

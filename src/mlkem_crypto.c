@@ -42,6 +42,31 @@ const struct mlkem_type_info MLKEM1024_INFO = {
     .name = LN_ML_KEM_1024,
 };
 
+static const char *ssh_mlkem_get_propq(const struct mlkem_type_info *mlkem_info)
+{
+    static const char *propq = NULL;
+    static bool is_cached = false;
+    EVP_KEM *kem = NULL;
+
+    if (is_cached) {
+        return propq;
+    }
+    is_cached = true;
+
+    if (!ssh_fips_mode()) {
+        return propq;
+    }
+
+    kem = EVP_KEM_fetch(NULL, mlkem_info->name, NULL);
+    if (kem != NULL) {
+        EVP_KEM_free(kem);
+        return propq;
+    }
+
+    propq = FIPS_FALLBACK_PROPQ;
+    return propq;
+}
+
 int ssh_mlkem_init(ssh_session session)
 {
     struct ssh_crypto_struct *crypto = session->next_crypto;
@@ -51,6 +76,7 @@ int ssh_mlkem_init(ssh_session session)
     const struct mlkem_type_info *mlkem_info = NULL;
     ssh_string pubkey = NULL;
     size_t pubkey_size;
+    const char *propq = NULL;
 
     mlkem_info = kex_type_to_mlkem_info(crypto->kex_type);
     if (mlkem_info == NULL) {
@@ -58,7 +84,9 @@ int ssh_mlkem_init(ssh_session session)
         goto cleanup;
     }
 
-    ctx = EVP_PKEY_CTX_new_from_name(NULL, mlkem_info->name, NULL);
+    propq = ssh_mlkem_get_propq(mlkem_info);
+
+    ctx = EVP_PKEY_CTX_new_from_name(NULL, mlkem_info->name, propq);
     if (ctx == NULL) {
         SSH_LOG(SSH_LOG_WARNING,
                 "Failed to create ML-KEM context: %s",
@@ -127,6 +155,7 @@ int ssh_mlkem_encapsulate(ssh_session session,
     size_t shared_secret_size = MLKEM_SHARED_SECRET_SIZE;
     ssh_string ciphertext = NULL;
     size_t ciphertext_size;
+    const char *propq = NULL;
 
     mlkem_info = kex_type_to_mlkem_info(crypto->kex_type);
     if (mlkem_info == NULL) {
@@ -134,9 +163,11 @@ int ssh_mlkem_encapsulate(ssh_session session,
         goto cleanup;
     }
 
+    propq = ssh_mlkem_get_propq(mlkem_info);
+
     pkey = EVP_PKEY_new_raw_public_key_ex(NULL,
                                           mlkem_info->name,
-                                          NULL,
+                                          propq,
                                           pubkey,
                                           pubkey_len);
     if (pkey == NULL) {
@@ -146,7 +177,7 @@ int ssh_mlkem_encapsulate(ssh_session session,
         goto cleanup;
     }
 
-    ctx = EVP_PKEY_CTX_new_from_pkey(NULL, pkey, NULL);
+    ctx = EVP_PKEY_CTX_new_from_pkey(NULL, pkey, propq);
     if (ctx == NULL) {
         SSH_LOG(SSH_LOG_WARNING,
                 "Failed to create ML-KEM context: %s",
@@ -201,8 +232,18 @@ int ssh_mlkem_decapsulate(const ssh_session session,
     int rc, ret = SSH_ERROR;
     size_t shared_secret_size = MLKEM_SHARED_SECRET_SIZE;
     struct ssh_crypto_struct *crypto = session->next_crypto;
+    const struct mlkem_type_info *mlkem_info = NULL;
+    const char *propq = NULL;
 
-    ctx = EVP_PKEY_CTX_new_from_pkey(NULL, crypto->mlkem_privkey, NULL);
+    mlkem_info = kex_type_to_mlkem_info(crypto->kex_type);
+    if (mlkem_info == NULL) {
+        SSH_LOG(SSH_LOG_WARNING, "Unknown ML-KEM type");
+        goto cleanup;
+    }
+
+    propq = ssh_mlkem_get_propq(mlkem_info);
+
+    ctx = EVP_PKEY_CTX_new_from_pkey(NULL, crypto->mlkem_privkey, propq);
     if (ctx == NULL) {
         SSH_LOG(SSH_LOG_WARNING,
                 "Failed to create ML-KEM context: %s",

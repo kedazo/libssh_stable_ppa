@@ -1,8 +1,4 @@
-cmake_minimum_required(VERSION 2.8.0)
-
-if (CMAKE_VERSION VERSION_GREATER 3.0.0)
-cmake_policy(SET CMP0048 NEW)
-endif (CMAKE_VERSION VERSION_GREATER 3.0.0)
+cmake_minimum_required(VERSION 3.14.0)
 
 # Specify search path for CMake modules to be loaded by include()
 # and find_package()
@@ -13,12 +9,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
 include(DefineCMakeDefaults)
 include(DefineCompilerFlags)
 
-if (CMAKE_VERSION VERSION_GREATER 3.0.0)
-project(libssh VERSION 0.12.00 LANGUAGES C)
-else (CMAKE_VERSION VERSION_GREATER 3.0.0)
-project(libssh LANGUAGES C CXX)
-set(PROJECT_VERSION "0.12.00")
-endif (CMAKE_VERSION VERSION_GREATER 3.0.0)
+project(libssh VERSION 0.12.2 LANGUAGES C)
 
 # global needed variable
 set(APPLICATION_NAME ${PROJECT_NAME})
@@ -30,7 +21,7 @@ set(APPLICATION_NAME ${PROJECT_NAME})
 #     Increment AGE. Set REVISION to 0
 #   If the source code was changed, but there were no interface changes:
 #     Increment REVISION.
-set(LIBRARY_VERSION "4.11.0")
+set(LIBRARY_VERSION "4.12.0")
 set(LIBRARY_SOVERSION "4")
 
 # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
